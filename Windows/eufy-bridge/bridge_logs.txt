@@ -1,0 +1,6 @@
+[37m2026-06-20 13:42:37.710[39m[0m[0m	[34m[1mINFO[22m[39m[0m[0m	[1m[37meufy-security-ws[39m[22m[0m[0m	Eufy Security server listening on host localhost, port 3000
+[37m2026-06-20 13:42:38.568[39m[0m[0m	[34m[1mINFO[22m[39m[0m[0m	[1m[37meufy-security-ws:eufy-security-client[39m[22m[0m[0m	[push] [generateFid] generateFid eHGLA_eZM_aoL8ZtD21Mpj
+[37m2026-06-20 13:42:38.658[39m[0m[0m	[34m[1mINFO[22m[39m[0m[0m	[1m[37meufy-security-ws:eufy-security-client[39m[22m[0m[0m	[http] [Station.onConnect] Connected to station T8010T1523282BFA on host 10.0.0.158 and port 11039
+[37m2026-06-20 13:42:39.947[39m[0m[0m	[34m[1mINFO[22m[39m[0m[0m	[1m[37meufy-security-ws:eufy-security-client[39m[22m[0m[0m	[main] Push notification connection successfully established
+[37m2026-06-20 13:57:07.359[39m[0m[0m	[34m[1mINFO[22m[39m[0m[0m	[1m[37meufy-security-ws[39m[22m[0m[0m	Client disconnected with ip: ::1 port: 63963 code: 1006 reason: Abnormal Closure
+^C

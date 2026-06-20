@@ -1,0 +1,31 @@
+# Environnement virtuel
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Fichiers compilés Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Fichiers de configuration locaux ou secrets
+serviceAccountKey.json
+.env
+*.db
+*.sqlite3
+
+# Dossier data complet (vidéos h264 temporaires, base de données, photos)
+data/
+
+# Pont Eufy (Très Critique : contient le mot de passe et le token de session Eufy !)
+eufy-bridge/config.json
+eufy-bridge/persistent.json
+eufy-bridge/node_modules/
+
+# Modèles IA (lourds)
+ai/weights/*.pt
+
+# MacOS
+.DS_Store

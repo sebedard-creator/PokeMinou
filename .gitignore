@@ -1,0 +1,9 @@
+# OS générés
+.DS_Store
+Thumbs.db
+
+# Ignorer tous les fichiers de secrets par sécurité globale
+serviceAccountKey.json
+google-services.json
+persistent.json
+config.json

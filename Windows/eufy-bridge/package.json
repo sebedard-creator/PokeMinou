@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "eufy-security-ws": "^3.0.1"
+  }
+}

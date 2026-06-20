@@ -1,0 +1,15 @@
+# Secrets et Configs
+google-services.json
+local.properties
+
+# Gradle et Build
+.gradle/
+build/
+app/build/
+gradlew.bat
+!gradle-wrapper.jar
+
+# IDE (Android Studio)
+.idea/
+*.iml
+.DS_Store
