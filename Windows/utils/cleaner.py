@@ -56,5 +56,6 @@ def cleanup_firebase_storage():
 
 def run_all_cleanups():
     """Fonction principale appelée par le planificateur (schedule)."""
-    cleanup_local_images()
+    # Nettoyage local désactivé à la demande de l'utilisateur (conservation à vie)
+    # cleanup_local_images()
     cleanup_firebase_storage()

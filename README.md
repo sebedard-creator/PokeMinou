@@ -28,7 +28,7 @@ Located in the `Windows/` folder, this Python-based backend acts as a highly opt
   - Correct the AI if it makes a mistake (teach the AI a new cat's face or correct a false positive).
   - Adjust the YOLO confidence threshold and notification cooldown slider on the fly.
 - **Cloud Synchronization**: Uploads the cropped cat picture to Firebase Storage and sends a Cloud Messaging (FCM) push notification containing a hidden `data payload` (Cat Name and Image URL).
-- **Automated Nightly Cleaner**: Runs at 3:00 AM every day to delete local images older than 30 days and Firebase images older than 48 hours, ensuring zero disk bloat.
+- **Automated Nightly Cleaner**: Runs at 3:00 AM every day to delete Firebase images older than 48 hours (ensuring zero cloud bloat), while keeping your local history of cat pictures forever!
 
 ---
 
@@ -63,4 +63,4 @@ Located in the `Android/` folder, this native Android application is built with 
 4. Grant the "Post Notifications" permission when prompted.
 
 ---
-*Created with ❤️ for smart homes and smarter cats.*
+*Created with ❤️ for smart homes and smarter cats by Sébastien Bédard.*
