@@ -2,6 +2,22 @@
 
 Toutes les modifications notables apportées à ce projet seront documentées dans ce fichier.
 
+## [1.0.0-dev.2] - 2026-06-20
+### Changé
+- **Pivot Android :** Migration des scripts de build de Kotlin (KTS) vers Groovy et mise à jour de l'Android Gradle Plugin (AGP) en 8.3.0 pour résoudre les erreurs de configuration `debugCompileClasspath`.
+- **Firebase FCM :** Ajout du support du "Data Payload" dans le backend Python pour envoyer l'URL de l'image et le nom du chat.
+- **Android UI :** Réécriture de `MainActivity.kt` pour intercepter le Data Payload en arrière-plan et afficher l'image reçue en HD via Coil (`CatDetectedScreen`).
+- **Cooldown Dynamique :** Lecture en temps réel du seuil de cooldown depuis la configuration modifiée via l'interface Gradio (au lieu d'une copie statique à l'initialisation).
+- **Nettoyage :** Désactivation du nettoyage des images locales (conservation à vie de la base SQLite et des images locales sur disque). Le nettoyage Firebase (48h) est maintenu.
+- **Dépendances :** Suppression de la dépendance orpheline `huggingface_hub` de `requirements.txt`.
+
+### Corrigé
+- **Bug Timezone :** Correction du système de cooldown. Utilisation de `datetime.utcnow()` en Python pour correspondre aux timestamps UTC insérés par SQLite (`CURRENT_TIMESTAMP`), évitant un blocage permanent des notifications.
+
+### Ajouté
+- **Sécurité :** Sécurisation complète des `.gitignore` pour le dossier Root, Windows et Android (Exclusion stricte des clés Eufy, Firebase, et dossiers de données).
+- **Documentation :** Création d'un `README.md` exhaustif en anglais expliquant l'écosystème.
+- **Scripts utilitaires :** Création de `StartPokeMinou.vbs` pour permettre le lancement du backend en arrière-plan (silencieux) via le dossier de démarrage Windows.
 ## [1.0.0-dev.1] - 2026-06-19
 ### Ajouté
 - Initialisation du projet.
