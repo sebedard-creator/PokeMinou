@@ -193,7 +193,7 @@ fun CatDetectedScreen(catName: String, imageUrl: String?, onReset: () -> Unit) {
                             .fillMaxWidth()
                             .height(250.dp)
                             .clip(RoundedCornerShape(12.dp)),
-                        contentScale = ContentScale.Crop
+                        contentScale = ContentScale.Fit
                     )
                 } else {
                     Text(

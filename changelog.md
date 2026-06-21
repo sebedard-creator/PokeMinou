@@ -6,8 +6,10 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 ### Changé
 - **Pivot Android :** Migration des scripts de build de Kotlin (KTS) vers Groovy et mise à jour de l'Android Gradle Plugin (AGP) en 8.3.0 pour résoudre les erreurs de configuration `debugCompileClasspath`.
 - **Firebase FCM :** Ajout du support du "Data Payload" dans le backend Python pour envoyer l'URL de l'image et le nom du chat.
-- **Android UI :** Réécriture de `MainActivity.kt` pour intercepter le Data Payload en arrière-plan et afficher l'image reçue en HD via Coil (`CatDetectedScreen`).
+- **Android UI :** Réécriture de `MainActivity.kt` pour intercepter le Data Payload en arrière-plan et afficher l'image reçue en HD via Coil (`CatDetectedScreen`). Remplacement de `ContentScale.Crop` par `ContentScale.Fit` pour afficher l'image du chat en entier sans la tronquer.
+- **Android Manifest :** Ajout de `android:launchMode="singleTop"` pour forcer l'appel de `onNewIntent` et régler un bug de réception de payload sur certains téléphones (Samsung, Xiaomi, etc.).
 - **Cooldown Dynamique :** Lecture en temps réel du seuil de cooldown depuis la configuration modifiée via l'interface Gradio (au lieu d'une copie statique à l'initialisation).
+- **Extraction Vidéo IA :** Optimisation de la capture P2P pour contrer le délai de connexion de la caméra. L'IA extrait désormais la 10ème frame (au lieu du premier tiers) pour flasher le chat au plus vite.
 - **Nettoyage :** Désactivation du nettoyage des images locales (conservation à vie de la base SQLite et des images locales sur disque). Le nettoyage Firebase (48h) est maintenu.
 - **Dépendances :** Suppression de la dépendance orpheline `huggingface_hub` de `requirements.txt`.
 

@@ -56,9 +56,10 @@ class AIPipeline:
                 cap.release()
                 
                 if valid_frames:
-                    # On prend une frame au premier tiers (~1 sec) pour maximiser les chances 
-                    # de voir le chat au moment du mouvement, tout en évitant les artefacts H264 de démarrage
-                    target_index = len(valid_frames) // 3
+                    # Le flux P2P commence souvent avec ~3 secondes de retard sur le mouvement réel.
+                    # On prend donc une frame très tôt dans notre clip (ex: la 10ème frame) pour rattraper ce retard, 
+                    # tout en évitant les artefacts de compression/glitchs des 5 premières frames.
+                    target_index = min(10, len(valid_frames) - 1)
                     img = valid_frames[target_index]
                     logger.info(f"Extraction réussie ! ({len(valid_frames)} frames lues, sélection de la frame {target_index})")
                     
