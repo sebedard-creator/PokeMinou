@@ -1,0 +1,724 @@
+Lancement silencieux en cours... 
+==============================================
+       Lancement de PokeMinou (Bridge + AI)
+==============================================
+
+[1/2] Lancement du pont Eufy en arriere-plan...
+
+[2/2] Lancement du backend AI PokeMinou...
+Activation de l'environnement virtuel...
+L'interface d'administration Gradio sera disponible sur :
+http://10.0.0.30:8095
+
+2026-06-21 17:22:48,821 - Main - INFO - Démarrage du système PokeMinou Backend...
+2026-06-21 17:22:48,822 - Database - INFO - Base de données SQLite initialisée à Y:\PokeMinou\Windows\data\pokeminou.db
+2026-06-21 17:22:48,823 - AIPipeline - INFO - Initialisation du pipeline IA (YOLOv8 + ReID)...
+2026-06-21 17:22:48,849 - ReID - INFO - Chargement du modèle ResNet50 pour le ReID...
+2026-06-21 17:22:49,469 - UI - INFO - Démarrage de l'interface Gradio sur http://127.0.0.1:8095
+2026-06-21 17:22:49,564 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-initiated-analytics "HTTP/1.1 200 OK"
+2026-06-21 17:22:49,792 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-21 17:22:51,736 - httpx - INFO - HTTP Request: GET http://localhost:8095/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-06-21 17:22:53,776 - httpx - INFO - HTTP Request: HEAD http://localhost:8095/ "HTTP/1.1 200 OK"
+2026-06-21 17:22:53,780 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-21 17:22:53,784 - EufyClient - INFO - Connexion WebSocket établie avec succès !
+2026-06-21 17:22:53,785 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'set_schema', 'result': {}}
+2026-06-21 17:22:53,786 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_listening', 'result': {'state': {'driver': {'version': '4.0.0', 'connected': True, 'pushConnected': True, 'mqttConnected': False}, 'stations': [
+2026-06-21 17:22:53,880 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-launched-telemetry "HTTP/1.1 200 OK"
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-21 17:25:19,267 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:25:19,267 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:25:19,267 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:25:19,267 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-21 17:25:19,275 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:25:19,320 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:25:19,321 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:25:19,332 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:25:19,368 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:25:19,368 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:25:21,367 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:25:24,276 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:25:24,276 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:25:24,276 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:25:24,276 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:25:24,820 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:25:26,610 - AIPipeline - INFO - \U0001f431 Chat détecté avec succès à la frame 5 !
+2026-06-21 17:25:26,655 - AIPipeline - INFO - Saturation moyenne de l'image : 52.98
+2026-06-21 17:25:26,665 - AIPipeline - INFO - Image détectée comme DIURNE. Extraction des features ReID...
+2026-06-21 17:25:26,779 - AIPipeline - INFO - Meilleur score de similarité : 0.87 (Seuil: 0.8)
+2026-06-21 17:25:26,779 - AIPipeline - INFO - Chat identifié : Petit Orange (ID: 2)
+2026-06-21 17:25:26,784 - Database - INFO - Visite enregistrée pour cat_id: 2
+2026-06-21 17:25:26,784 - AIPipeline - INFO - Cooldown OK. Prêt pour Firebase Push !
+2026-06-21 17:25:26,785 - FirebaseSync - INFO - Upload de Y:\PokeMinou\Windows\data\images\cat_20260621_172526.jpg vers Storage...
+2026-06-21 17:25:27,978 - FirebaseSync - INFO - Upload réussi. URL publique : https://storage.googleapis.com/pokeminou-b2530.firebasestorage.app/cats/cat_20260621_172526.jpg
+2026-06-21 17:25:28,570 - FirebaseSync - INFO - Message FCM envoyé avec succès : projects/pokeminou-b2530/messages/1346052280536667170
+2026-06-21 17:25:28,599 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:25:28,599 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:25:28,599 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:25:28,599 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:25:29,271 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:25:29,271 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:25:29,271 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-21 17:25:29,271 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:25:29,271 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:25:29,271 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:25:29,271 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:25:29,272 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:25:29,272 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:25:29,272 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:25:29,272 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:25:29,603 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:25:29,618 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:25:29,731 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:25:31,660 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:25:33,684 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:25:34,286 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:25:34,286 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:25:34,286 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:25:34,286 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:25:34,597 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:25:35,250 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:25:35,270 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:25:35,270 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:25:35,270 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:25:35,270 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:25:39,275 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:25:39,275 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:25:39,275 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-21 17:25:39,275 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:25:39,275 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:25:39,275 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:25:39,275 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:25:39,276 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:25:40,940 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:25:40,945 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:25:41,450 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:25:44,265 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:25:44,266 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:25:44,266 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:25:44,266 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:25:44,635 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:25:45,282 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:25:45,303 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:25:45,303 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:25:45,303 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:26:19,364 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-21 17:26:19,388 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:26:19,400 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:26:19,452 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-21 17:26:19,454 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:26:19,517 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-21 17:26:19,519 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:26:29,308 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-21 17:32:40,233 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:32:44,341 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:32:44,341 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:32:44,341 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:32:44,341 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:32:44,342 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:32:44,381 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:32:44,395 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:32:44,697 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:32:44,724 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:32:49,346 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:32:49,346 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:32:49,346 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:32:49,346 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:32:49,798 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:32:50,721 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:32:50,755 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:32:50,755 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:32:50,755 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:32:50,755 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:32:54,352 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:32:54,352 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:32:54,352 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:32:54,352 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:32:54,353 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:32:54,412 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:32:54,412 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:32:56,870 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:32:57,158 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:32:58,855 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:32:59,360 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:32:59,360 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:32:59,360 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:32:59,361 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:32:59,651 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:33:00,180 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:33:00,201 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:33:00,201 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:33:00,201 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:33:44,439 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-21 17:33:44,474 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:33:44,537 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-21 17:33:44,538 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:34:38,375 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:34:38,375 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:34:38,375 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:34:38,375 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:34:38,376 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:34:38,420 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:34:38,420 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:34:38,799 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:34:40,479 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:34:43,383 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:34:43,383 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:34:43,383 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:34:43,383 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:34:43,841 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:34:44,763 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:34:44,792 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:34:44,792 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:34:44,792 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:34:44,793 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:34:48,381 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:34:48,381 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:34:48,381 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:34:48,381 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:34:48,384 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:34:49,417 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:34:49,417 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:34:50,067 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:34:50,475 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:34:52,491 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:34:53,390 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:34:53,390 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:34:53,390 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:34:53,390 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:34:53,734 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:34:54,460 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:34:54,481 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:34:54,481 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:34:54,481 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:35:38,471 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-21 17:35:38,495 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:35:38,572 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-21 17:35:38,574 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:37:31,339 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:37:31,339 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:37:31,339 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-21 17:37:31,339 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:37:31,339 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:37:31,339 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:37:31,339 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:37:31,340 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:37:31,381 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:37:31,396 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:37:31,441 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:37:35,436 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:37:36,352 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:37:36,353 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:37:36,353 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:37:36,353 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:37:36,742 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:37:37,463 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:37:37,488 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:37:37,488 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:37:37,488 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:37:37,488 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:37:41,347 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:37:41,347 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:37:41,347 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-21 17:37:41,347 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:37:41,347 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:37:41,347 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:37:41,347 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:37:41,348 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:37:41,402 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:37:41,402 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:37:41,437 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:37:41,453 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:37:46,348 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:37:46,349 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:37:46,349 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:37:46,349 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:37:46,685 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:37:47,408 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:37:47,431 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:37:47,431 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:37:47,431 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:38:31,429 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-21 17:38:31,455 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:38:31,520 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-21 17:38:31,521 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:39:46,859 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:39:46,859 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:39:46,859 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:39:46,859 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:39:46,860 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:39:46,911 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:39:46,911 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:39:46,972 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:39:46,972 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:39:47,265 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:39:49,008 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:39:49,008 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:39:51,022 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:39:51,861 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:39:51,861 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:39:51,862 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:39:51,862 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:39:52,321 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:39:53,238 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:39:53,271 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:39:53,271 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:39:53,271 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:39:53,271 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:39:56,860 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:39:56,860 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:39:56,860 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:39:56,860 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:39:56,861 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:39:56,901 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:39:56,901 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:39:59,095 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:39:59,501 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:40:01,087 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:01,866 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:40:01,866 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:40:01,866 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:40:01,867 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:40:02,185 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:40:02,771 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:40:02,793 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:40:02,793 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:40:02,793 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:40:10,801 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:10,801 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:40:10,801 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:40:10,801 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:40:10,801 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:40:10,867 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:40:10,877 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:40:11,135 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:40:11,155 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:15,809 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:40:15,810 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:40:15,810 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:40:15,810 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:40:16,257 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:40:16,392 - AIPipeline - INFO - \U0001f431 Chat détecté avec succès à la frame 10 !
+2026-06-21 17:40:16,422 - AIPipeline - INFO - Saturation moyenne de l'image : 62.91
+2026-06-21 17:40:16,426 - AIPipeline - INFO - Image détectée comme DIURNE. Extraction des features ReID...
+2026-06-21 17:40:16,497 - AIPipeline - INFO - Meilleur score de similarité : 0.85 (Seuil: 0.8)
+2026-06-21 17:40:16,497 - AIPipeline - INFO - Chat identifié : Ti Gris (ID: 3)
+2026-06-21 17:40:16,505 - Database - INFO - Visite enregistrée pour cat_id: 3
+2026-06-21 17:40:16,505 - AIPipeline - INFO - Cooldown OK. Prêt pour Firebase Push !
+2026-06-21 17:40:16,506 - FirebaseSync - INFO - Upload de Y:\PokeMinou\Windows\data\images\cat_20260621_174016.jpg vers Storage...
+2026-06-21 17:40:17,122 - FirebaseSync - INFO - Upload réussi. URL publique : https://storage.googleapis.com/pokeminou-b2530.firebasestorage.app/cats/cat_20260621_174016.jpg
+2026-06-21 17:40:17,489 - FirebaseSync - INFO - Message FCM envoyé avec succès : projects/pokeminou-b2530/messages/8695253539230624581
+2026-06-21 17:40:17,516 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:40:17,516 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:40:17,516 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:40:17,516 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:40:20,802 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:20,802 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:40:20,802 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:40:20,802 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:40:20,803 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:40:20,868 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:40:20,869 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:40:20,905 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:21,176 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:40:25,786 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:40:25,787 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:40:25,787 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:40:25,787 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:40:26,267 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:40:27,185 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:40:27,214 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:40:27,214 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:40:27,214 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:40:46,966 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-21 17:40:46,990 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:40:47,055 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-21 17:40:47,057 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:49,496 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:49,496 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:49,496 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-21 17:40:49,496 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:49,496 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:40:49,496 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:40:49,496 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:40:49,497 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:40:49,541 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:40:49,553 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:40:49,566 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:40:49,784 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:53,668 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:54,512 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:40:54,512 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:40:54,512 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:40:54,512 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:40:54,814 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:40:55,405 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:40:55,428 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:40:55,428 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:40:55,428 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:40:55,428 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:40:59,508 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:59,508 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:59,508 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-21 17:40:59,508 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:40:59,508 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:40:59,508 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:40:59,508 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:40:59,509 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:40:59,561 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:40:59,561 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:40:59,580 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:41:03,637 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:41:04,513 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:41:04,513 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:41:04,513 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:41:04,513 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:41:04,839 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:41:05,431 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:41:05,450 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:41:05,450 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:41:05,450 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:41:05,450 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:41:49,624 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-21 17:41:49,648 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:41:49,717 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-21 17:41:49,718 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:43:40,934 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:43:40,934 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:43:40,934 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:43:40,935 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:43:40,935 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:43:40,994 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:43:41,007 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:43:41,045 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:43:41,045 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:43:41,373 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:43:45,957 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:43:45,957 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:43:45,957 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:43:45,957 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:43:46,444 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:43:46,516 - AIPipeline - INFO - \U0001f431 Chat détecté avec succès à la frame 5 !
+2026-06-21 17:43:46,552 - AIPipeline - INFO - Saturation moyenne de l'image : 50.05
+2026-06-21 17:43:46,553 - AIPipeline - INFO - Image détectée comme DIURNE. Extraction des features ReID...
+2026-06-21 17:43:46,623 - AIPipeline - INFO - Meilleur score de similarité : 0.82 (Seuil: 0.8)
+2026-06-21 17:43:46,623 - AIPipeline - INFO - Chat identifié : Ti Gris (ID: 3)
+2026-06-21 17:43:46,628 - Database - INFO - Visite enregistrée pour cat_id: 3
+2026-06-21 17:43:46,628 - AIPipeline - INFO - Cooldown OK. Prêt pour Firebase Push !
+2026-06-21 17:43:46,628 - FirebaseSync - INFO - Upload de Y:\PokeMinou\Windows\data\images\cat_20260621_174346.jpg vers Storage...
+2026-06-21 17:43:46,949 - FirebaseSync - INFO - Upload réussi. URL publique : https://storage.googleapis.com/pokeminou-b2530.firebasestorage.app/cats/cat_20260621_174346.jpg
+2026-06-21 17:43:47,079 - FirebaseSync - INFO - Message FCM envoyé avec succès : projects/pokeminou-b2530/messages/9090195961759974280
+2026-06-21 17:43:47,113 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:43:47,113 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:43:47,113 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:43:47,113 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:43:50,942 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:43:50,942 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:43:50,942 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:43:50,942 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:43:50,943 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:43:51,019 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:43:51,020 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:43:51,020 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:43:51,365 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:43:55,937 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:43:55,938 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:43:55,938 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:43:55,938 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:43:56,400 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:43:57,333 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:43:57,362 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:43:57,362 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:43:57,362 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:44:41,036 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-21 17:44:41,068 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:44:41,127 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-21 17:44:41,129 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:44:57,345 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:44:57,345 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:44:57,345 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:44:57,345 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:44:57,346 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:44:57,391 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:44:57,407 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:44:57,439 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:44:57,613 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:44:59,453 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:44:59,453 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:01,467 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:02,331 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:45:02,332 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:45:02,332 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:45:02,332 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:45:02,794 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:45:02,928 - AIPipeline - INFO - \U0001f431 Chat détecté avec succès à la frame 10 !
+2026-06-21 17:45:02,960 - AIPipeline - INFO - Saturation moyenne de l'image : 47.47
+2026-06-21 17:45:02,962 - AIPipeline - INFO - Image détectée comme DIURNE. Extraction des features ReID...
+2026-06-21 17:45:03,031 - AIPipeline - INFO - Meilleur score de similarité : 0.83 (Seuil: 0.8)
+2026-06-21 17:45:03,031 - AIPipeline - INFO - Chat identifié : Ti Gris (ID: 5)
+2026-06-21 17:45:03,040 - Database - INFO - Visite enregistrée pour cat_id: 5
+2026-06-21 17:45:03,040 - AIPipeline - INFO - Cooldown OK. Prêt pour Firebase Push !
+2026-06-21 17:45:03,040 - FirebaseSync - INFO - Upload de Y:\PokeMinou\Windows\data\images\cat_20260621_174502.jpg vers Storage...
+2026-06-21 17:45:03,375 - FirebaseSync - INFO - Upload réussi. URL publique : https://storage.googleapis.com/pokeminou-b2530.firebasestorage.app/cats/cat_20260621_174502.jpg
+2026-06-21 17:45:03,789 - FirebaseSync - INFO - Message FCM envoyé avec succès : projects/pokeminou-b2530/messages/6989065674298017924
+2026-06-21 17:45:03,816 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:45:03,816 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:45:03,816 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:03,816 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:45:07,358 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:07,358 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:45:07,358 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:45:07,358 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:45:07,359 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:45:07,432 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:07,432 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:45:07,464 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:07,518 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:45:09,489 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:12,372 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:45:12,372 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:45:12,372 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:45:12,372 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:45:12,832 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:45:13,799 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:45:13,828 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:45:13,832 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:45:13,832 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:13,832 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:45:14,430 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:14,430 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:45:14,430 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:45:14,430 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-21 17:45:14,431 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:45:14,488 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:14,488 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:45:14,548 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:14,570 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:45:19,419 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:45:19,420 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:45:19,420 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:45:19,420 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:45:19,835 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:45:20,636 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:45:20,660 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:45:20,660 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:45:20,660 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:20,660 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:45:24,442 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:24,442 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:45:24,444 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:45:24,444 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-21 17:45:24,445 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:45:24,497 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:24,497 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:45:24,544 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:45:26,568 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:29,455 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:45:29,456 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:45:29,456 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:45:29,456 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:45:29,851 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:45:30,711 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:45:30,735 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:45:30,735 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:45:30,735 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:30,735 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:45:35,018 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:35,018 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:35,018 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-21 17:45:35,018 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:35,018 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:45:35,018 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:45:35,018 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:45:35,019 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:45:35,080 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:35,080 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:45:35,112 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:35,130 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:45:40,004 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:45:40,005 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:45:40,005 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:45:40,005 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:45:40,362 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:45:41,080 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:45:41,101 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:45:41,101 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:45:41,101 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:41,101 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:41,102 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-21 17:45:41,102 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:41,102 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:45:41,102 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:45:41,102 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-21 17:45:41,102 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:41,102 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:45:41,102 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:45:41,159 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:41,159 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:45:41,204 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:45:43,464 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:45,022 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:45,023 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:45,023 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-21 17:45:45,023 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:45,023 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:45:45,023 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:45:46,088 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:45:46,088 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:45:46,088 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:45:46,088 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:45:46,423 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:45:47,091 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:45:47,112 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:45:47,112 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:45:47,112 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:47,112 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:45:50,062 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:50,062 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:50,062 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-21 17:45:50,062 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:50,062 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:45:50,062 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:45:50,062 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-21 17:45:50,063 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:45:51,248 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:51,248 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:45:51,840 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:45:53,148 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:55,070 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:45:55,070 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:45:55,070 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:45:55,070 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:45:55,429 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:45:56,142 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:45:56,166 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:45:56,166 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:45:56,166 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:57,464 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-21 17:45:57,495 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:57,512 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:45:57,572 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-21 17:45:57,574 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:45:57,617 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-21 17:45:57,618 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:46:14,498 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-21 17:47:03,368 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:03,368 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:47:03,368 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:47:03,368 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:47:03,369 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:47:03,429 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:47:03,430 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:47:03,460 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:03,766 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:03,766 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:03,766 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-21 17:47:03,766 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:03,767 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:47:03,767 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:47:03,833 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:47:07,502 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:08,378 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:47:08,378 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:47:08,378 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:47:08,378 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:47:08,836 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:47:09,752 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:47:09,779 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:47:09,779 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:47:09,779 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:47:09,779 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:47:13,375 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:13,375 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:47:13,375 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:47:13,375 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-21 17:47:13,376 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:47:13,778 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:13,779 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:13,779 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-21 17:47:13,779 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:13,779 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:47:13,779 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:47:15,272 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:47:15,284 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:47:15,554 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:15,824 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:47:17,537 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:18,373 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:47:18,373 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:47:18,373 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:47:18,373 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:47:18,702 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:47:19,293 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-21 17:47:19,312 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:47:19,312 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:47:19,312 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:47:24,169 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:24,169 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:47:24,169 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:47:24,169 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-21 17:47:24,170 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:47:24,237 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:47:24,237 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:47:24,286 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:47:24,301 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:29,176 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:47:29,176 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:47:29,176 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:47:29,176 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:47:29,601 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:47:29,795 - AIPipeline - INFO - \U0001f431 Chat détecté avec succès à la frame 15 !
+2026-06-21 17:47:29,827 - AIPipeline - INFO - Saturation moyenne de l'image : 44.38
+2026-06-21 17:47:29,835 - AIPipeline - INFO - Image détectée comme DIURNE. Extraction des features ReID...
+2026-06-21 17:47:29,904 - AIPipeline - INFO - Meilleur score de similarité : 0.82 (Seuil: 0.8)
+2026-06-21 17:47:29,904 - AIPipeline - INFO - Chat identifié : Ti Gris (ID: 3)
+2026-06-21 17:47:29,912 - Database - INFO - Visite enregistrée pour cat_id: 3
+2026-06-21 17:47:29,912 - AIPipeline - INFO - Cooldown OK. Prêt pour Firebase Push !
+2026-06-21 17:47:29,912 - FirebaseSync - INFO - Upload de Y:\PokeMinou\Windows\data\images\cat_20260621_174729.jpg vers Storage...
+2026-06-21 17:47:30,228 - FirebaseSync - INFO - Upload réussi. URL publique : https://storage.googleapis.com/pokeminou-b2530.firebasestorage.app/cats/cat_20260621_174729.jpg
+2026-06-21 17:47:30,373 - FirebaseSync - INFO - Message FCM envoyé avec succès : projects/pokeminou-b2530/messages/8976301703364296208
+2026-06-21 17:47:30,398 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:47:30,398 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:47:30,398 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:47:30,398 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:47:34,181 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:47:34,181 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-21 17:47:34,181 - EufyClient - INFO - \U0001f6a8 Mouvement Eufy détecté !
+2026-06-21 17:47:34,181 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-21 17:47:34,182 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-21 17:47:34,248 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:47:34,249 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-21 17:47:34,264 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-21 17:47:39,177 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-21 17:47:39,177 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-21 17:47:39,177 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-21 17:47:39,177 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-21 17:47:39,607 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-21 17:47:39,673 - AIPipeline - INFO - \U0001f431 Chat détecté avec succès à la frame 5 !
+2026-06-21 17:47:39,703 - AIPipeline - INFO - Saturation moyenne de l'image : 52.61
+2026-06-21 17:47:39,705 - AIPipeline - INFO - Image détectée comme DIURNE. Extraction des features ReID...
+2026-06-21 17:47:39,780 - AIPipeline - INFO - Meilleur score de similarité : 0.83 (Seuil: 0.8)
+2026-06-21 17:47:39,780 - AIPipeline - INFO - Chat identifié : Ti Gris (ID: 5)
+2026-06-21 17:47:39,789 - Database - INFO - Visite enregistrée pour cat_id: 5
+2026-06-21 17:47:39,789 - AIPipeline - INFO - Cooldown OK. Prêt pour Firebase Push !
+2026-06-21 17:47:39,789 - FirebaseSync - INFO - Upload de Y:\PokeMinou\Windows\data\images\cat_20260621_174739.jpg vers Storage...
+2026-06-21 17:47:40,123 - FirebaseSync - INFO - Upload réussi. URL publique : https://storage.googleapis.com/pokeminou-b2530.firebasestorage.app/cats/cat_20260621_174739.jpg
+2026-06-21 17:47:40,590 - FirebaseSync - INFO - Message FCM envoyé avec succès : projects/pokeminou-b2530/messages/3376780487260450871
+2026-06-21 17:47:40,616 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-21 17:47:40,616 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-21 17:47:40,616 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:47:40,616 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-21 17:48:03,468 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-21 17:48:03,501 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:48:03,516 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-21 17:48:03,576 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-21 17:48:03,578 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:48:03,627 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-21 17:48:03,629 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-21 17:48:03,812 - EufyClient - INFO - Événement Eufy reçu : database query latest
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)

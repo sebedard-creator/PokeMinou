@@ -37,12 +37,15 @@ class AIPipeline:
         """
         logger.info("Démarrage de la séquence IA...")
         
-        img = None
-        
         if picture_bytes_or_path is None:
             logger.error("Aucune source d'image fournie.")
             return
             
+        img = None
+        best_box = None
+        cat_found = False
+        import core.config as config
+
         if isinstance(picture_bytes_or_path, str) and picture_bytes_or_path.endswith('.h264'):
             logger.info(f"Extraction d'une frame HD depuis le clip vidéo : {picture_bytes_or_path}")
             cap = cv2.VideoCapture(picture_bytes_or_path)
@@ -56,61 +59,67 @@ class AIPipeline:
                 cap.release()
                 
                 if valid_frames:
-                    # Le flux P2P commence souvent avec ~3 secondes de retard sur le mouvement réel.
-                    # On prend donc une frame très tôt dans notre clip (ex: la 10ème frame) pour rattraper ce retard, 
-                    # tout en évitant les artefacts de compression/glitchs des 5 premières frames.
-                    target_index = min(10, len(valid_frames) - 1)
-                    img = valid_frames[target_index]
-                    logger.info(f"Extraction réussie ! ({len(valid_frames)} frames lues, sélection de la frame {target_index})")
+                    logger.info("Analyse des frames vidéo à la recherche d'un chat...")
+                    start_idx = min(5, len(valid_frames) - 1)
                     
+                    for i in range(start_idx, len(valid_frames), 5):
+                        test_img = valid_frames[i]
+                        results = self.yolo.predict(test_img, conf=config.CONFIDENCE_THRESHOLD, verbose=False)
+                        
+                        for result in results:
+                            for box in result.boxes:
+                                if int(box.cls[0]) == CAT_CLASS_ID:
+                                    cat_found = True
+                                    best_box = box.xyxy[0].cpu().numpy().astype(int)
+                                    img = test_img
+                                    break
+                            if cat_found: break
+                            
+                        if cat_found:
+                            logger.info(f"🐱 Chat détecté avec succès à la frame {i} !")
+                            break
+
+                    if not cat_found:
+                        logger.info("Aucun chat détecté sur l'ensemble du clip. Image ignorée.")
+                        return
+                        
                     # Sauvegarde pour le débogage visuel
                     from core.config import IMAGES_DIR
                     debug_path = str(IMAGES_DIR.parent / "last_frame.jpg")
                     cv2.imwrite(debug_path, img)
-                    logger.info(f"Image sauvegardée pour débogage : {debug_path}")
                 else:
                     logger.error("Le clip vidéo est vide ou illisible.")
+                    return
             else:
                 logger.error("Impossible d'ouvrir le fichier vidéo .h264.")
+                return
         else:
-            # Traitement d'une image classique (test)
+            # Traitement d'une image classique (test manuel)
             if isinstance(picture_bytes_or_path, bytes):
                 nparr = np.frombuffer(picture_bytes_or_path, np.uint8)
                 img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
             else:
                 img = cv2.imread(picture_bytes_or_path)
 
-        if img is None:
-            logger.error("Impossible d'obtenir l'image.")
-            return
+            if img is None:
+                logger.error("Impossible d'obtenir l'image statique.")
+                return
 
-        # 1. Détection YOLO
-        import core.config as config
-        results = self.yolo.predict(img, conf=config.CONFIDENCE_THRESHOLD, verbose=False)
-        
-        cat_found = False
-        best_box = None
-        
-        # Chercher la bounding box d'un "chat" (class 15)
-        for result in results:
-            boxes = result.boxes
-            for box in boxes:
-                cls_id = int(box.cls[0])
-                if cls_id == CAT_CLASS_ID:
-                    cat_found = True
-                    # xyxy = [x1, y1, x2, y2]
-                    best_box = box.xyxy[0].cpu().numpy().astype(int)
-                    break # On prend le premier chat détecté pour simplifier
-            if cat_found:
-                break
+            results = self.yolo.predict(img, conf=config.CONFIDENCE_THRESHOLD, verbose=False)
+            for result in results:
+                for box in result.boxes:
+                    if int(box.cls[0]) == CAT_CLASS_ID:
+                        cat_found = True
+                        best_box = box.xyxy[0].cpu().numpy().astype(int)
+                        break
+                if cat_found: break
 
-        if not cat_found:
-            logger.info("Aucun chat détecté sur l'image.")
-            return
+            if not cat_found:
+                logger.info("Aucun chat détecté sur l'image statique.")
+                return
 
         # 2. Recadrage (Cropping)
         x1, y1, x2, y2 = best_box
-        # Ajouter une petite marge (padding) si on veut, ici on recadre au plus juste
         cropped_img_cv = img[y1:y2, x1:x2]
         
         # 3. Vérification Jour / Nuit

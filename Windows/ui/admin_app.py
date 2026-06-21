@@ -60,8 +60,9 @@ body {
 """
 
 class AdminApp:
-    def __init__(self, db_manager: DBManager):
+    def __init__(self, db_manager: DBManager, eufy_client=None):
         self.db = db_manager
+        self.eufy_client = eufy_client
 
     def get_recent_visits(self):
         """Récupère les 20 dernières visites depuis la base de données pour la galerie."""
@@ -99,6 +100,7 @@ class AdminApp:
 
     def update_settings(self, conf, cooldown):
         """Met à jour les paramètres et les sauvegarde sur le disque."""
+        import core.config as config
         config.save_settings(conf / 100.0, cooldown)
         return f"Paramètres sauvegardés (et persistants) : Confiance={conf}%, Cooldown={cooldown} min."
 
@@ -163,6 +165,7 @@ class AdminApp:
                 return f"Erreur de traitement IA : {str(e)}"
 
     def build_ui(self):
+        import core.config as config
         # Utilisation d'un thème sombre moderne fourni par Gradio, rehaussé par notre CSS
         self.theme = gr.themes.Monochrome(
             primary_hue="indigo",
@@ -184,6 +187,8 @@ class AdminApp:
             with gr.Row():
                 # Colonne Gauche : Paramètres
                 with gr.Column(scale=1, elem_classes="settings-box"):
+                    bridge_status_ui = gr.Markdown("Statut du Pont Eufy : 🔄 *Vérification...*")
+                    gr.Markdown("---")
                     gr.Markdown("### ⚙️ Paramètres du Système")
                     conf_slider = gr.Slider(minimum=10, maximum=100, value=lambda: int(config.CONFIDENCE_THRESHOLD*100), step=5, label="Confiance YOLO (%)")
                     cooldown_slider = gr.Slider(minimum=1, maximum=60, value=lambda: config.COOLDOWN_MINUTES, step=1, label="Cooldown Notifications (minutes)")
@@ -219,8 +224,13 @@ class AdminApp:
                         items, rows = self.get_recent_visits()
                         # Mettre à jour la liste des chats
                         cats = [c["name"] for c in self.db.get_all_cats()]
-                        # Retourner les items pour la galerie, les raw data, et le Dropdown mis à jour
-                        return items, rows, gr.update(choices=list(set(cats)))
+                        
+                        bridge_state = "🔴 **DÉCONNECTÉ** (Pont Eufy inactif)"
+                        if self.eufy_client and getattr(self.eufy_client, 'is_connected', False):
+                            bridge_state = "🟢 **CONNECTÉ** (En attente de mouvements)"
+                            
+                        # Retourner les items pour la galerie, les raw data, le Dropdown mis à jour, et l'état du pont
+                        return items, rows, gr.update(choices=list(set(cats))), f"Statut du Pont Eufy : {bridge_state}"
                         
                     def on_select(evt: gr.SelectData, rows):
                         index = evt.index
@@ -228,8 +238,8 @@ class AdminApp:
                         cat_name = rows[index][3]
                         return visit_id, f"**Sélection actuelle :** Visite n°{visit_id} ({cat_name})"
 
-                    app.load(fn=refresh_ui, outputs=[gallery, gallery_data, cat_dropdown])
-                    refresh_btn.click(fn=refresh_ui, outputs=[gallery, gallery_data, cat_dropdown])
+                    app.load(fn=refresh_ui, outputs=[gallery, gallery_data, cat_dropdown, bridge_status_ui])
+                    refresh_btn.click(fn=refresh_ui, outputs=[gallery, gallery_data, cat_dropdown, bridge_status_ui])
                     gallery.select(fn=on_select, inputs=[gallery_data], outputs=[selected_visit_id, selection_info])
                     correct_btn.click(
                         fn=self.apply_correction, 
@@ -237,14 +247,14 @@ class AdminApp:
                         outputs=correction_status
                     ).then(
                         fn=refresh_ui,
-                        outputs=[gallery, gallery_data, cat_dropdown]
+                        outputs=[gallery, gallery_data, cat_dropdown, bridge_status_ui]
                     )
 
         return app
 
-def start_gradio(db_manager: DBManager):
+def start_gradio(db_manager: DBManager, eufy_client=None):
     """Point d'entrée pour lancer l'interface."""
-    admin_app = AdminApp(db_manager)
+    admin_app = AdminApp(db_manager, eufy_client)
     app = admin_app.build_ui()
     # Lancement sur le port 8095
     logger.info("Démarrage de l'interface Gradio sur http://127.0.0.1:8095")

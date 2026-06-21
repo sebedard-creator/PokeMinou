@@ -16,6 +16,7 @@ class EufyClient:
         self.is_streaming = False
         self.h264_file = None
         self.h264_path = None
+        self.is_connected = False
 
     async def connect_and_listen(self):
         self.is_running = True
@@ -26,6 +27,7 @@ class EufyClient:
                 async with websockets.connect(self.ws_url) as websocket:
                     logger.info("Connexion WebSocket établie avec succès !")
                     self.ws = websocket
+                    self.is_connected = True
                     
                     # Commande OBLIGATOIRE pour activer les commandes récentes
                     await websocket.send(json.dumps({
@@ -48,6 +50,8 @@ class EufyClient:
                 logger.warning(f"Connexion WebSocket Eufy perdue/refusée : {e}")
             except Exception as e:
                 logger.error(f"Erreur Eufy : {e}")
+            finally:
+                self.is_connected = False
             
             if self.is_running:
                 logger.info(f"Reconnexion Eufy dans {self.reconnect_delay} secondes...")

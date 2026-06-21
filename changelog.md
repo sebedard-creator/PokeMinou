@@ -2,6 +2,19 @@
 
 Toutes les modifications notables apportées à ce projet seront documentées dans ce fichier.
 
+## [1.0.0-dev.3] - 2026-06-21
+### Changé
+- **Extraction Vidéo IA :** Refonte majeure de `process_image()`. L'IA ne se contente plus de lire aveuglément la 10ème frame, mais elle scanne l'intégralité du clip vidéo (1 frame sur 5) jusqu'à ce qu'elle trouve une détection positive d'un chat. Cela garantit une capture fiable même si le chat est furtif ou en mouvement rapide.
+- **Interface UI Gradio :** Les valeurs des paramètres (Confiance et Cooldown) utilisent désormais une évaluation dynamique (`lambda`) pour toujours afficher la valeur réelle en RAM lors d'un rafraîchissement de la page (F5), contrant ainsi le cache persistant de Gradio.
+
+### Corrigé
+- **Bug YOLO :** Correction du système de configuration où YOLO lisait le seuil de confiance (`CONFIDENCE_THRESHOLD`) de façon statique lors de l'initialisation. Il interroge désormais le module dynamiquement à chaque prédiction.
+- **Paramètres Amnésiques :** Ajout d'une véritable persistance des paramètres modifiés via le Dashboard Gradio. Les valeurs sont maintenant sauvegardées dans `data/settings.json` et rechargées au redémarrage du serveur.
+- **Crash de Lancement Silencieux :** Remplacement de la commande `timeout` (qui plante lorsqu'invoquée sans console) par un délai réseau `ping` dans `start.bat`. Ajout du `CurrentDirectory` forcé dans `StartPokeMinou.vbs`. Cela permet au backend de démarrer parfaitement en mode invisible (arrière-plan).
+
+### Ajouté
+- **Indicateur d'État Eufy :** Intégration d'un témoin visuel 🟢/🔴 dans l'interface d'administration Gradio pour suivre l'état de connexion en temps réel entre le script Python et le pont Node.js (`eufy-security-ws`).
+
 ## [1.0.0-dev.2] - 2026-06-20
 ### Changé
 - **Pivot Android :** Migration des scripts de build de Kotlin (KTS) vers Groovy et mise à jour de l'Android Gradle Plugin (AGP) en 8.3.0 pour résoudre les erreurs de configuration `debugCompileClasspath`.

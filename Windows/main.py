@@ -40,7 +40,7 @@ async def main():
     eufy_client = EufyClient(image_callback=ai_pipeline.process_image)
     
     # 4. Lancer l'interface Web d'administration Gradio
-    start_gradio(db_manager)
+    start_gradio(db_manager, eufy_client)
     
     # Lancement de la boucle de surveillance Eufy (bloquante)
     await eufy_client.connect_and_listen()

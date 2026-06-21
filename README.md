@@ -17,16 +17,17 @@ Located in the `Windows/` folder, this Python-based backend acts as a highly opt
 ### Key Features:
 - **Eufy Camera Integration (`eufy-security-ws`)**: Hooks into the Eufy cloud using a WebSocket bridge. It listens instantly to "Motion Detected" events across all your Eufy cameras.
 - **P2P Video Streaming**: When motion is detected, it connects directly to the specific Eufy camera that triggered the alert, recording a 5-second raw `.h264` video clip.
-- **AI Object Detection (YOLOv8)**: Analyzes the video frames to detect the presence of a cat and crops the image perfectly around the cat's face/body.
+- **AI Object Detection (YOLOv8)**: Intelligently scans multiple frames across the recorded 5-second raw `.h264` video clip to ensure no fast-moving cat is missed, then crops the best image perfectly around the cat's face/body.
 - **AI Re-Identification (ResNet50)**: Extracts a 2048-dimensional mathematical vector from the cropped image and compares it against known cats in the local SQLite database using Cosine Similarity (default threshold: 80%).
 - **Smart Notification Engine**:
   - Automatically creates a new profile if the cat is unknown.
   - Features an anti-spam "Cooldown" system (default 2 minutes, dynamically adjustable) to prevent notification flooding if a cat lingers in front of the camera.
   - Automatically ignores nighttime detections using a generic `Chat_Nuit_Mystere` profile (since infrared images break color-based facial recognition).
 - **Gradio Admin Web UI**: Accessible locally at `http://127.0.0.1:8095`. Allows you to:
+  - Check the live connection status (🟢/🔴) of the Eufy WebSocket bridge.
   - View the gallery of recent cat visits.
   - Correct the AI if it makes a mistake (teach the AI a new cat's face or correct a false positive).
-  - Adjust the YOLO confidence threshold and notification cooldown slider on the fly.
+  - Adjust the YOLO confidence threshold and notification cooldown slider on the fly (settings are persistently saved to `settings.json`).
 - **Cloud Synchronization**: Uploads the cropped cat picture to Firebase Storage and sends a Cloud Messaging (FCM) push notification containing a hidden `data payload` (Cat Name and Image URL).
 - **Automated Nightly Cleaner**: Runs at 3:00 AM every day to delete Firebase images older than 48 hours (ensuring zero cloud bloat), while keeping your local history of cat pictures forever!
 
