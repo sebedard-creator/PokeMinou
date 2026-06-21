@@ -34,3 +34,35 @@ IMAGE_RETENTION_HOURS_FIREBASE = 48
 # --- Configuration Firebase ---
 FIREBASE_CREDENTIALS_PATH = BASE_DIR / "serviceAccountKey.json"
 FIREBASE_STORAGE_BUCKET = "pokeminou-b2530.firebasestorage.app"
+
+# --- Persistance des Paramètres ---
+import json
+
+SETTINGS_FILE = DATA_DIR / "settings.json"
+
+def load_settings():
+    global CONFIDENCE_THRESHOLD, COOLDOWN_MINUTES
+    if SETTINGS_FILE.exists():
+        try:
+            with open(SETTINGS_FILE, "r") as f:
+                data = json.load(f)
+                CONFIDENCE_THRESHOLD = data.get("CONFIDENCE_THRESHOLD", CONFIDENCE_THRESHOLD)
+                COOLDOWN_MINUTES = data.get("COOLDOWN_MINUTES", COOLDOWN_MINUTES)
+        except Exception as e:
+            print(f"Erreur lors du chargement des paramètres: {e}")
+
+def save_settings(conf, cooldown):
+    global CONFIDENCE_THRESHOLD, COOLDOWN_MINUTES
+    CONFIDENCE_THRESHOLD = conf
+    COOLDOWN_MINUTES = cooldown
+    try:
+        with open(SETTINGS_FILE, "w") as f:
+            json.dump({
+                "CONFIDENCE_THRESHOLD": conf,
+                "COOLDOWN_MINUTES": cooldown
+            }, f)
+    except Exception as e:
+        print(f"Erreur lors de la sauvegarde des paramètres: {e}")
+
+# Charger les paramètres persistants au démarrage
+load_settings()

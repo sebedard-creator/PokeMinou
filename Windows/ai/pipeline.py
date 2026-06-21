@@ -85,7 +85,8 @@ class AIPipeline:
             return
 
         # 1. Détection YOLO
-        results = self.yolo.predict(img, conf=CONFIDENCE_THRESHOLD, verbose=False)
+        import core.config as config
+        results = self.yolo.predict(img, conf=config.CONFIDENCE_THRESHOLD, verbose=False)
         
         cat_found = False
         best_box = None

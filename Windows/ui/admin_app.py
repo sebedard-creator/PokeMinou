@@ -76,23 +76,31 @@ class AdminApp:
         ''')
         rows = cursor.fetchall()
         conn.close()
-        
+        from datetime import datetime, timezone
         gallery_items = []
         for row in rows:
             img_path = row[1]
             cat_name = row[3]
-            timestamp = row[2]
+            utc_timestamp_str = row[2]
+            
+            # Conversion UTC vers Local Time pour l'affichage visuel
+            try:
+                utc_dt = datetime.strptime(utc_timestamp_str, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
+                local_dt = utc_dt.astimezone()
+                display_time = local_dt.strftime("%Y-%m-%d %H:%M:%S")
+            except Exception:
+                display_time = utc_timestamp_str
+                
             if os.path.exists(img_path):
                 # Format: (image_path, caption)
-                gallery_items.append((img_path, f"{cat_name} - {timestamp}"))
+                gallery_items.append((img_path, f"{cat_name} - {display_time}"))
         
         return gallery_items, rows
 
     def update_settings(self, conf, cooldown):
-        """Met à jour les paramètres en mémoire."""
-        config.CONFIDENCE_THRESHOLD = conf / 100.0
-        config.COOLDOWN_MINUTES = cooldown
-        return f"Paramètres sauvegardés : Confiance={conf}%, Cooldown={cooldown} min."
+        """Met à jour les paramètres et les sauvegarde sur le disque."""
+        config.save_settings(conf / 100.0, cooldown)
+        return f"Paramètres sauvegardés (et persistants) : Confiance={conf}%, Cooldown={cooldown} min."
 
     def apply_correction(self, visit_id, existing_name, new_name):
         if not visit_id:
@@ -177,8 +185,8 @@ class AdminApp:
                 # Colonne Gauche : Paramètres
                 with gr.Column(scale=1, elem_classes="settings-box"):
                     gr.Markdown("### ⚙️ Paramètres du Système")
-                    conf_slider = gr.Slider(minimum=10, maximum=100, value=int(config.CONFIDENCE_THRESHOLD*100), step=5, label="Confiance YOLO (%)")
-                    cooldown_slider = gr.Slider(minimum=1, maximum=60, value=config.COOLDOWN_MINUTES, step=1, label="Cooldown Notifications (minutes)")
+                    conf_slider = gr.Slider(minimum=10, maximum=100, value=lambda: int(config.CONFIDENCE_THRESHOLD*100), step=5, label="Confiance YOLO (%)")
+                    cooldown_slider = gr.Slider(minimum=1, maximum=60, value=lambda: config.COOLDOWN_MINUTES, step=1, label="Cooldown Notifications (minutes)")
                     save_btn = gr.Button("💾 Sauvegarder", variant="primary")
                     status_text = gr.Markdown("")
                     

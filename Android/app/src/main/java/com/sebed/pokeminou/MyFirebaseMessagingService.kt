@@ -27,9 +27,11 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         super.onMessageReceived(remoteMessage)
 
         // Les données arrivent souvent dans la section 'data' si on envoie une image
-        val title = remoteMessage.notification?.title ?: remoteMessage.data["title"] ?: "Minou Détecté!"
-        val body = remoteMessage.notification?.body ?: remoteMessage.data["body"] ?: "Un chat a été aperçu."
+        val catName = remoteMessage.data["cat_name"] ?: "Chat inconnu"
         val imageUrl = remoteMessage.data["image_url"]
+        
+        val title = remoteMessage.notification?.title ?: remoteMessage.data["title"] ?: "Minou Détecté!"
+        val body = remoteMessage.notification?.body ?: remoteMessage.data["body"] ?: catName
 
         var bitmap: Bitmap? = null
         if (imageUrl != null) {
@@ -45,15 +47,20 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             }
         }
 
-        sendNotification(title, body, bitmap)
+        sendNotification(title, body, bitmap, catName, imageUrl)
     }
 
-    private fun sendNotification(title: String, messageBody: String, image: Bitmap?) {
+    private fun sendNotification(title: String, messageBody: String, image: Bitmap?, catName: String?, imageUrl: String?) {
         val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        
+        // C'est CRUCIAL : il faut remettre le payload dans l'intent manuel pour le mode Foreground !
+        if (catName != null) intent.putExtra("cat_name", catName)
+        if (imageUrl != null) intent.putExtra("image_url", imageUrl)
+        
         val pendingIntent = PendingIntent.getActivity(
             this, 0, intent,
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_ONE_SHOT
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
 
         val channelId = "pokeminou_alerts"
