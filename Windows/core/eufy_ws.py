@@ -91,8 +91,8 @@ class EufyClient:
                 if "livestream video data" not in str(event_name) and "livestream audio data" not in str(event_name):
                     logger.info(f"Événement Eufy reçu : {event_name}")
 
-                if event_name == "motion detected":
-                    logger.info("🚨 Mouvement Eufy détecté !")
+                if event_name in ["motion detected", "person detected", "pet detected"]:
+                    logger.info(f"🚨 Déclencheur Eufy activé ({event_name}) !")
                     serial_number = event_data.get("serialNumber")
                     
                     if serial_number and not self.is_streaming and self.ws:

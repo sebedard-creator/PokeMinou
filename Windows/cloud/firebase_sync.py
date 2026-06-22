@@ -58,15 +58,19 @@ class FirebaseManager:
             return
 
         try:
+            import datetime
+            current_time = datetime.datetime.now().strftime("%H:%M")
+            display_name = f"{cat_name} à {current_time}"
+
             # Envoi à tous les appareils abonnés au topic "all"
             message = messaging.Message(
                 notification=messaging.Notification(
-                    title="Minou Détecté!",
-                    body=f"{cat_name}",
+                    title="Minou Détecté !",
+                    body=f"Un mouvement de {display_name} a été détecté.",
                     image=image_url if image_url else None
                 ),
                 data={
-                    "cat_name": str(cat_name),
+                    "cat_name": str(display_name),
                     "image_url": str(image_url) if image_url else ""
                 },
                 topic="all"
