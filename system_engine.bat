@@ -7,8 +7,9 @@ echo.
 echo [1/2] Lancement du pont Eufy en arriere-plan...
 set USERNAME=sebedard666@hotmail.com
 set PASSWORD=PokeMinou666$$$
+set HOST=127.0.0.1
 cd /d "%~dp0Windows\eufy-bridge"
-start /B "" "node_modules\.bin\eufy-security-server.cmd" > bridge_logs.txt 2>&1
+start /B "" node node_modules\eufy-security-ws\dist\bin\server.js > bridge.log 2>&1
 
 :: Attendre 5 secondes pour que le port 3000 s'ouvre bien (ping fonctionne mieux en mode silencieux)
 ping 127.0.0.1 -n 6 > nul

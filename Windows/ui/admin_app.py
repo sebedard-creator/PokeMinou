@@ -16,7 +16,9 @@ body {
     color: #f1f5f9;
 }
 .gradio-container {
-    max-width: 1200px !important;
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
 }
 .header-box {
     background: rgba(30, 41, 59, 0.7);
@@ -56,6 +58,13 @@ body {
 .gr-button-primary:hover {
     transform: translateY(-2px) !important;
     box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6) !important;
+}
+#gallery {
+    width: 100% !important;
+    flex-grow: 1 !important;
+}
+#gallery .grid-wrap {
+    width: 100% !important;
 }
 """
 
@@ -214,10 +223,10 @@ class AdminApp:
                         label="Images Recadrées", 
                         show_label=False, 
                         elem_id="gallery", 
-                        columns=[4], 
-                        rows=[3], 
-                        object_fit="contain", 
-                        height="600px"
+                        columns=4, 
+                        rows=3, 
+                        height="85vh",
+                        object_fit="contain"
                     )
                     
                     def refresh_ui():

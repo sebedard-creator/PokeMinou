@@ -10,111 +10,60 @@ Activation de l'environnement virtuel...
 L'interface d'administration Gradio sera disponible sur :
 http://10.0.0.30:8095
 
-2026-06-21 19:43:45,708 - Main - INFO - Démarrage du système PokeMinou Backend...
-2026-06-21 19:43:45,720 - Database - INFO - Base de données SQLite initialisée à Y:\PokeMinou\Windows\data\pokeminou.db
-2026-06-21 19:43:45,721 - AIPipeline - INFO - Initialisation du pipeline IA (YOLOv8 + ReID)...
-2026-06-21 19:43:45,845 - ReID - INFO - Chargement du modèle ResNet50 pour le ReID...
-2026-06-21 19:43:47,024 - UI - INFO - Démarrage de l'interface Gradio sur http://127.0.0.1:8095
-2026-06-21 19:43:47,118 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-initiated-analytics "HTTP/1.1 200 OK"
-2026-06-21 19:43:47,344 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
-2026-06-21 19:43:49,412 - httpx - INFO - HTTP Request: GET http://localhost:8095/gradio_api/startup-events "HTTP/1.1 200 OK"
-2026-06-21 19:43:51,487 - httpx - INFO - HTTP Request: HEAD http://localhost:8095/ "HTTP/1.1 200 OK"
-2026-06-21 19:43:51,495 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
-2026-06-21 19:43:51,508 - EufyClient - INFO - Connexion WebSocket établie avec succès !
-2026-06-21 19:43:51,512 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'set_schema', 'result': {}}
-2026-06-21 19:43:51,513 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_listening', 'result': {'state': {'driver': {'version': '4.0.0', 'connected': True, 'pushConnected': True, 'mqttConnected': False}, 'stations': [
-2026-06-21 19:43:51,543 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-launched-telemetry "HTTP/1.1 200 OK"
-Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
-  return await queue_join_helper(body, request, username)
-Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
-  return await queue_join_helper(body, request, username)
-2026-06-21 19:46:03,250 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 19:46:03,250 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 19:46:03,251 - EufyClient - INFO - Événement Eufy reçu : person detected
-2026-06-21 19:46:03,251 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (person detected) !
-2026-06-21 19:46:03,251 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
-2026-06-21 19:46:03,251 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 19:46:03,251 - EufyClient - INFO - Événement Eufy reçu : motion detected
-2026-06-21 19:46:03,251 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
-2026-06-21 19:46:03,253 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
-2026-06-21 19:46:03,297 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 19:46:03,298 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
-2026-06-21 19:46:03,333 - EufyClient - INFO - Événement Eufy reçu : livestream started
-2026-06-21 19:46:03,360 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 19:46:08,246 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
-2026-06-21 19:46:08,246 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
-2026-06-21 19:46:08,247 - AIPipeline - INFO - Démarrage de la séquence IA...
-2026-06-21 19:46:08,247 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
-2026-06-21 19:46:08,898 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
-2026-06-21 19:46:11,907 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
-2026-06-21 19:46:11,940 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
-2026-06-21 19:46:11,940 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
-2026-06-21 19:46:11,940 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 19:46:11,940 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
-2026-06-21 19:46:13,252 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 19:46:13,252 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 19:46:13,252 - EufyClient - INFO - Événement Eufy reçu : person detected
-2026-06-21 19:46:13,252 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (person detected) !
-2026-06-21 19:46:13,252 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
-2026-06-21 19:46:13,254 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 19:46:13,254 - EufyClient - INFO - Événement Eufy reçu : motion detected
-2026-06-21 19:46:13,254 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
-2026-06-21 19:46:13,254 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
-2026-06-21 19:46:14,617 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 19:46:14,617 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
-2026-06-21 19:46:15,207 - EufyClient - INFO - Événement Eufy reçu : livestream started
-2026-06-21 19:46:18,247 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
-2026-06-21 19:46:18,247 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
-2026-06-21 19:46:18,248 - AIPipeline - INFO - Démarrage de la séquence IA...
-2026-06-21 19:46:18,248 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
-2026-06-21 19:46:18,801 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
-2026-06-21 19:46:19,755 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
-2026-06-21 19:46:19,799 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
-2026-06-21 19:46:19,799 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
-2026-06-21 19:46:19,799 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 19:47:03,344 - EufyClient - INFO - Événement Eufy reçu : database query latest
-2026-06-21 19:47:03,375 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 19:47:03,466 - EufyClient - INFO - Événement Eufy reçu : image downloaded
-2026-06-21 19:47:03,467 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:06:08,563 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:06:08,563 - EufyClient - INFO - Événement Eufy reçu : motion detected
-2026-06-21 20:06:08,563 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
-2026-06-21 20:06:08,563 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
-2026-06-21 20:06:08,564 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
-2026-06-21 20:06:08,636 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:06:08,636 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
-2026-06-21 20:06:08,679 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:06:08,961 - EufyClient - INFO - Événement Eufy reçu : livestream started
-2026-06-21 20:06:13,566 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
-2026-06-21 20:06:13,566 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
-2026-06-21 20:06:13,566 - AIPipeline - INFO - Démarrage de la séquence IA...
-2026-06-21 20:06:13,566 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
-2026-06-21 20:06:14,219 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
-2026-06-21 20:06:15,272 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
-2026-06-21 20:06:15,306 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
-2026-06-21 20:06:15,306 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
-2026-06-21 20:06:15,306 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:06:18,575 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:06:18,575 - EufyClient - INFO - Événement Eufy reçu : motion detected
-2026-06-21 20:06:18,575 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
-2026-06-21 20:06:18,575 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
-2026-06-21 20:06:18,576 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
-2026-06-21 20:06:19,848 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:06:19,848 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
-2026-06-21 20:06:20,491 - EufyClient - INFO - Événement Eufy reçu : livestream started
-2026-06-21 20:06:23,588 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
-2026-06-21 20:06:23,588 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
-2026-06-21 20:06:23,588 - AIPipeline - INFO - Démarrage de la séquence IA...
-2026-06-21 20:06:23,589 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
-2026-06-21 20:06:24,092 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
-2026-06-21 20:06:24,900 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
-2026-06-21 20:06:24,943 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
-2026-06-21 20:06:24,943 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
-2026-06-21 20:06:24,943 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:07:08,652 - EufyClient - INFO - Événement Eufy reçu : database query latest
-2026-06-21 20:07:08,700 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:07:08,748 - EufyClient - INFO - Événement Eufy reçu : image downloaded
-2026-06-21 20:07:08,750 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 03:04:05,548 - Main - INFO - Démarrage du système PokeMinou Backend...
+2026-06-22 03:04:05,551 - Database - INFO - Base de données SQLite initialisée à Y:\PokeMinou\Windows\data\pokeminou.db
+2026-06-22 03:04:05,551 - AIPipeline - INFO - Initialisation du pipeline IA (YOLOv8 + ReID)...
+2026-06-22 03:04:05,654 - ReID - INFO - Chargement du modèle ResNet50 pour le ReID...
+2026-06-22 03:04:06,384 - UI - INFO - Démarrage de l'interface Gradio sur http://127.0.0.1:8095
+2026-06-22 03:04:06,494 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-initiated-analytics "HTTP/1.1 200 OK"
+2026-06-22 03:04:06,664 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-06-22 03:04:08,708 - httpx - INFO - HTTP Request: GET http://localhost:8095/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-06-22 03:04:10,810 - httpx - INFO - HTTP Request: HEAD http://localhost:8095/ "HTTP/1.1 200 OK"
+2026-06-22 03:04:10,814 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 03:04:10,822 - EufyClient - INFO - Connexion WebSocket établie avec succès !
+2026-06-22 03:04:10,823 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'set_schema', 'result': {}}
+2026-06-22 03:04:10,824 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_listening', 'result': {'state': {'driver': {'version': '4.0.0', 'connected': True, 'pushConnected': True, 'mqttConnected': False}, 'stations': [
+2026-06-22 03:04:10,850 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-launched-telemetry "HTTP/1.1 200 OK"
+2026-06-22 03:29:19,543 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 03:29:19,543 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 03:29:19,543 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 03:29:19,543 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-22 03:29:19,546 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 03:29:19,669 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 03:29:19,669 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 03:29:19,737 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 03:29:24,548 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 03:29:24,548 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 03:29:24,549 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 03:29:24,549 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 03:29:25,067 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 03:29:27,504 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-22 03:29:27,531 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 03:29:27,531 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 03:29:27,531 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 03:29:27,531 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-22 03:29:29,548 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 03:29:29,549 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 03:29:29,549 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 03:29:29,549 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-22 03:29:29,550 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 03:29:31,101 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 03:29:31,101 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 03:29:31,687 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 03:29:34,538 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 03:29:34,538 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 03:29:34,538 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 03:29:34,538 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 03:29:34,863 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 03:29:35,518 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-22 03:29:35,541 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 03:29:35,541 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 03:29:35,541 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 03:30:19,692 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-22 03:30:19,787 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 03:30:19,812 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-22 03:30:19,813 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:03:53,794 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
 Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
   return await queue_join_helper(body, request, username)
 Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
@@ -123,123 +72,300 @@ Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDepr
   return await queue_join_helper(body, request, username)
 Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
   return await queue_join_helper(body, request, username)
-2026-06-21 20:10:47,556 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:10:47,556 - EufyClient - INFO - Événement Eufy reçu : motion detected
-2026-06-21 20:10:47,556 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
-2026-06-21 20:10:47,556 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
-2026-06-21 20:10:47,557 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
-2026-06-21 20:10:47,609 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:10:47,622 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
-2026-06-21 20:10:47,925 - EufyClient - INFO - Événement Eufy reçu : livestream started
-2026-06-21 20:10:52,562 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
-2026-06-21 20:10:52,562 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
-2026-06-21 20:10:52,562 - AIPipeline - INFO - Démarrage de la séquence IA...
-2026-06-21 20:10:52,562 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
-2026-06-21 20:10:53,184 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
-2026-06-21 20:10:54,220 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
-2026-06-21 20:10:54,253 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
-2026-06-21 20:10:54,253 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
-2026-06-21 20:10:54,253 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:10:57,560 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:10:57,560 - EufyClient - INFO - Événement Eufy reçu : motion detected
-2026-06-21 20:10:57,560 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
-2026-06-21 20:10:57,560 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
-2026-06-21 20:10:57,561 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
-2026-06-21 20:10:59,315 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:10:59,315 - EufyClient - INFO - Événement Eufy reçu : motion detected
-2026-06-21 20:10:59,315 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
-2026-06-21 20:10:59,364 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:10:59,365 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
-2026-06-21 20:10:59,978 - EufyClient - INFO - Événement Eufy reçu : livestream started
-2026-06-21 20:11:02,570 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
-2026-06-21 20:11:02,570 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
-2026-06-21 20:11:02,570 - AIPipeline - INFO - Démarrage de la séquence IA...
-2026-06-21 20:11:02,570 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
-2026-06-21 20:11:02,964 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
-2026-06-21 20:11:03,638 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
-2026-06-21 20:11:03,660 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
-2026-06-21 20:11:03,660 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
-2026-06-21 20:11:03,660 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:11:09,327 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:11:09,327 - EufyClient - INFO - Événement Eufy reçu : motion detected
-2026-06-21 20:11:09,327 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
-2026-06-21 20:11:09,327 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
-2026-06-21 20:11:09,329 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
-2026-06-21 20:11:10,694 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:11:10,695 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
-2026-06-21 20:11:11,234 - EufyClient - INFO - Événement Eufy reçu : livestream started
-2026-06-21 20:11:14,351 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
-2026-06-21 20:11:14,351 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
-2026-06-21 20:11:14,351 - AIPipeline - INFO - Démarrage de la séquence IA...
-2026-06-21 20:11:14,351 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
-2026-06-21 20:11:14,861 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
-2026-06-21 20:11:15,675 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
-2026-06-21 20:11:15,704 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
-2026-06-21 20:11:15,704 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
-2026-06-21 20:11:15,704 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:11:47,662 - EufyClient - INFO - Événement Eufy reçu : database query latest
-2026-06-21 20:11:47,693 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:11:47,711 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:11:47,780 - EufyClient - INFO - Événement Eufy reçu : image downloaded
-2026-06-21 20:11:47,782 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:11:47,833 - EufyClient - INFO - Événement Eufy reçu : image downloaded
-2026-06-21 20:11:47,835 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:11:59,356 - EufyClient - INFO - Événement Eufy reçu : database query latest
-2026-06-21 20:12:57,709 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:12:57,709 - EufyClient - INFO - Événement Eufy reçu : motion detected
-2026-06-21 20:12:57,709 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
-2026-06-21 20:12:57,709 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
-2026-06-21 20:12:57,709 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
-2026-06-21 20:12:57,775 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:12:57,786 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
-2026-06-21 20:12:57,838 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:12:57,838 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:12:57,971 - EufyClient - INFO - Événement Eufy reçu : livestream started
-2026-06-21 20:13:01,003 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:13:01,003 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:13:02,710 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
-2026-06-21 20:13:02,710 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
-2026-06-21 20:13:02,710 - AIPipeline - INFO - Démarrage de la séquence IA...
-2026-06-21 20:13:02,710 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
-2026-06-21 20:13:03,279 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
-2026-06-21 20:13:03,517 - AIPipeline - INFO - \U0001f431 Chat détecté avec succès à la frame 15 !
-2026-06-21 20:13:03,569 - AIPipeline - INFO - Saturation moyenne de l'image : 41.28
-2026-06-21 20:13:03,575 - AIPipeline - INFO - Image détectée comme DIURNE. Extraction des features ReID...
-2026-06-21 20:13:03,750 - AIPipeline - INFO - Meilleur score de similarité : 0.80 (Seuil: 0.8)
-2026-06-21 20:13:03,750 - AIPipeline - INFO - Aucun chat connu correspondant. Création d'un profil temporaire...
-2026-06-21 20:13:03,755 - Database - INFO - Profil chat 'Nouveau_20260621_201303' mis à jour/ajouté (ID: 7)
-2026-06-21 20:13:03,760 - Database - INFO - Visite enregistrée pour cat_id: 7
-2026-06-21 20:13:03,760 - AIPipeline - INFO - Cooldown OK. Prêt pour Firebase Push !
-2026-06-21 20:13:03,768 - FirebaseSync - INFO - Upload de Y:\PokeMinou\Windows\data\images\cat_20260621_201303.jpg vers Storage...
-2026-06-21 20:13:04,743 - FirebaseSync - INFO - Upload réussi. URL publique : https://storage.googleapis.com/pokeminou-b2530.firebasestorage.app/cats/cat_20260621_201303.jpg
-2026-06-21 20:13:05,162 - FirebaseSync - INFO - Message FCM envoyé avec succès : projects/pokeminou-b2530/messages/3733127699985295232
-2026-06-21 20:13:05,194 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
-2026-06-21 20:13:05,194 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
-2026-06-21 20:13:05,194 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:13:05,194 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
-2026-06-21 20:13:07,713 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:13:07,713 - EufyClient - INFO - Événement Eufy reçu : motion detected
-2026-06-21 20:13:07,713 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
-2026-06-21 20:13:07,714 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
-2026-06-21 20:13:07,715 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
-2026-06-21 20:13:07,767 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:13:07,767 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
-2026-06-21 20:13:11,052 - EufyClient - INFO - Événement Eufy reçu : livestream started
-2026-06-21 20:13:11,517 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:13:11,517 - EufyClient - INFO - Événement Eufy reçu : property changed
-2026-06-21 20:13:12,710 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
-2026-06-21 20:13:12,710 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
-2026-06-21 20:13:12,710 - AIPipeline - INFO - Démarrage de la séquence IA...
-2026-06-21 20:13:12,710 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
-2026-06-21 20:13:13,112 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
-2026-06-21 20:13:13,776 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
-2026-06-21 20:13:13,798 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
-2026-06-21 20:13:13,798 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
-2026-06-21 20:13:13,798 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:13:57,807 - EufyClient - INFO - Événement Eufy reçu : database query latest
-2026-06-21 20:13:57,838 - EufyClient - INFO - Événement Eufy reçu : command result
-2026-06-21 20:13:57,921 - EufyClient - INFO - Événement Eufy reçu : image downloaded
-2026-06-21 20:13:57,923 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:38:15,026 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:38:15,026 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 06:38:15,026 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 06:38:15,026 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-22 06:38:15,027 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 06:38:15,139 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 06:38:15,142 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 06:38:15,154 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 06:38:19,183 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:38:19,184 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:38:20,025 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 06:38:20,030 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 06:38:20,030 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 06:38:20,030 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 06:38:20,429 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 06:38:21,147 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-22 06:38:21,168 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 06:38:21,169 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 06:38:21,169 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 06:38:21,169 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-22 06:38:25,029 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:38:25,029 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 06:38:25,029 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 06:38:25,029 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-22 06:38:25,030 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 06:38:28,017 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 06:38:28,017 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 06:38:28,268 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 06:38:30,007 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:38:30,040 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 06:38:30,041 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 06:38:30,041 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 06:38:30,041 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 06:38:30,346 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 06:38:30,929 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-22 06:38:30,947 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 06:38:30,947 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 06:38:30,947 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 06:39:15,186 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-22 06:39:15,300 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 06:39:15,357 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-22 06:39:15,359 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:42:46,493 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:42:46,493 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:42:46,493 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-22 06:42:46,493 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (person detected) !
+2026-06-22 06:42:46,493 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-22 06:42:46,494 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:42:46,494 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 06:42:46,494 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 06:42:46,494 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 06:42:46,597 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 06:42:46,617 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 06:42:46,617 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 06:42:51,497 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 06:42:51,497 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 06:42:51,498 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 06:42:51,498 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 06:42:51,869 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 06:42:52,533 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-22 06:42:52,558 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 06:42:52,558 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 06:42:52,558 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 06:42:52,558 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-22 06:42:56,502 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:42:56,502 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:42:56,502 - EufyClient - INFO - Événement Eufy reçu : person detected
+2026-06-22 06:42:56,503 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (person detected) !
+2026-06-22 06:42:56,503 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-22 06:42:56,503 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:42:56,503 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 06:42:56,503 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 06:42:56,503 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 06:42:58,247 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 06:42:58,248 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 06:42:58,676 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:42:58,676 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:42:58,870 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 06:43:00,707 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:43:00,708 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 06:43:01,509 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 06:43:01,509 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 06:43:01,509 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 06:43:01,509 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 06:43:01,830 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 06:43:02,486 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-22 06:43:02,505 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 06:43:02,506 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 06:43:02,506 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 06:43:46,680 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-22 06:43:46,778 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 06:43:46,839 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-22 06:43:46,840 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:19:19,234 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:19:19,234 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 07:19:19,234 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 07:19:19,234 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-22 07:19:19,235 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 07:19:19,330 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:19:19,345 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 07:19:19,393 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 07:19:19,393 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:19:19,393 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:19:24,241 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 07:19:24,241 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 07:19:24,241 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 07:19:24,241 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 07:19:24,635 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 07:19:25,351 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-22 07:19:25,377 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 07:19:25,377 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 07:19:25,377 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:19:25,377 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-22 07:19:29,243 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:19:29,243 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 07:19:29,243 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 07:19:29,243 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-22 07:19:29,244 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 07:19:30,679 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:19:30,679 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 07:19:31,261 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 07:19:34,243 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 07:19:34,243 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 07:19:34,243 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 07:19:34,243 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 07:19:34,578 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 07:19:35,282 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-22 07:19:35,311 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 07:19:35,311 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 07:19:35,312 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:20:19,460 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-22 07:20:19,556 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:20:19,687 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-22 07:20:19,688 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:38:14,169 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:38:14,171 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 07:38:14,171 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 07:38:14,172 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-22 07:38:14,178 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 07:38:14,286 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:38:14,299 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 07:38:14,349 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 07:38:14,522 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:38:19,163 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 07:38:19,164 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 07:38:19,164 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 07:38:19,165 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 07:38:19,706 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 07:38:19,821 - AIPipeline - INFO - \U0001f431 Chat détecté avec succès à la frame 5 !
+2026-06-22 07:38:19,876 - AIPipeline - INFO - Saturation moyenne de l'image : 50.55
+2026-06-22 07:38:19,881 - AIPipeline - INFO - Image détectée comme DIURNE. Extraction des features ReID...
+2026-06-22 07:38:20,049 - AIPipeline - INFO - Meilleur score de similarité : 0.76 (Seuil: 0.8)
+2026-06-22 07:38:20,049 - AIPipeline - INFO - Aucun chat connu correspondant. Création d'un profil temporaire...
+2026-06-22 07:38:20,054 - Database - INFO - Profil chat 'Nouveau_20260622_073819' mis à jour/ajouté (ID: 8)
+2026-06-22 07:38:20,059 - Database - INFO - Visite enregistrée pour cat_id: 8
+2026-06-22 07:38:20,059 - AIPipeline - INFO - Cooldown OK. Prêt pour Firebase Push !
+2026-06-22 07:38:20,074 - FirebaseSync - INFO - Upload de Y:\PokeMinou\Windows\data\images\cat_20260622_073819.jpg vers Storage...
+2026-06-22 07:38:21,133 - FirebaseSync - INFO - Upload réussi. URL publique : https://storage.googleapis.com/pokeminou-b2530.firebasestorage.app/cats/cat_20260622_073819.jpg
+2026-06-22 07:38:21,481 - FirebaseSync - INFO - Message FCM envoyé avec succès : projects/pokeminou-b2530/messages/3747435704326928313
+2026-06-22 07:38:21,504 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 07:38:21,504 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 07:38:21,504 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:38:21,504 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-22 07:38:24,169 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:38:24,169 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 07:38:24,169 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 07:38:24,169 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T71232906DC...
+2026-06-22 07:38:24,170 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 07:38:26,227 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:38:26,258 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 07:38:26,874 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 07:38:29,188 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 07:38:29,188 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 07:38:29,189 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 07:38:29,189 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 07:38:29,536 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 07:38:30,190 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-22 07:38:30,211 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 07:38:30,211 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 07:38:30,211 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:39:14,365 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-22 07:39:14,461 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:39:14,521 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-22 07:39:14,522 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:42:19,031 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:42:19,031 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 07:42:19,031 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 07:42:19,031 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-22 07:42:19,033 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 07:42:19,156 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:42:19,156 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 07:42:19,169 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:42:19,169 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:42:19,209 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 07:42:24,031 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 07:42:24,031 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 07:42:24,032 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 07:42:24,032 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 07:42:24,497 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 07:42:24,640 - AIPipeline - INFO - \U0001f431 Chat détecté avec succès à la frame 10 !
+2026-06-22 07:42:24,673 - AIPipeline - INFO - Saturation moyenne de l'image : 57.95
+2026-06-22 07:42:24,678 - AIPipeline - INFO - Image détectée comme DIURNE. Extraction des features ReID...
+2026-06-22 07:42:24,754 - AIPipeline - INFO - Meilleur score de similarité : 0.81 (Seuil: 0.8)
+2026-06-22 07:42:24,754 - AIPipeline - INFO - Chat identifié : Ti Gris (ID: 7)
+2026-06-22 07:42:24,759 - Database - INFO - Visite enregistrée pour cat_id: 7
+2026-06-22 07:42:24,759 - AIPipeline - INFO - Cooldown OK. Prêt pour Firebase Push !
+2026-06-22 07:42:24,759 - FirebaseSync - INFO - Upload de Y:\PokeMinou\Windows\data\images\cat_20260622_074224.jpg vers Storage...
+2026-06-22 07:42:25,423 - FirebaseSync - INFO - Upload réussi. URL publique : https://storage.googleapis.com/pokeminou-b2530.firebasestorage.app/cats/cat_20260622_074224.jpg
+2026-06-22 07:42:26,114 - FirebaseSync - INFO - Message FCM envoyé avec succès : projects/pokeminou-b2530/messages/3635249117537780214
+2026-06-22 07:42:26,138 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 07:42:26,138 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 07:42:26,138 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:42:26,138 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-22 07:42:29,034 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:42:29,034 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 07:42:29,034 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 07:42:29,034 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-22 07:42:29,036 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 07:42:29,547 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:42:29,548 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 07:42:29,573 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:42:29,573 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:42:29,960 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 07:42:34,033 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 07:42:34,033 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 07:42:34,033 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 07:42:34,033 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 07:42:34,438 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 07:42:35,243 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-22 07:42:35,270 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 07:42:35,270 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 07:42:35,270 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:43:19,173 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-22 07:43:19,269 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:43:19,331 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-22 07:43:19,333 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:43:38,632 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:43:38,632 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 07:43:38,632 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 07:43:38,632 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-22 07:43:38,633 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 07:43:38,728 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 07:43:38,750 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:43:38,750 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 07:43:43,635 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 07:43:43,635 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 07:43:43,635 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 07:43:43,636 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 07:43:44,190 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 07:43:44,259 - AIPipeline - INFO - \U0001f431 Chat détecté avec succès à la frame 5 !
+2026-06-22 07:43:44,299 - AIPipeline - INFO - Saturation moyenne de l'image : 66.13
+2026-06-22 07:43:44,301 - AIPipeline - INFO - Image détectée comme DIURNE. Extraction des features ReID...
+2026-06-22 07:43:44,379 - AIPipeline - INFO - Meilleur score de similarité : 0.80 (Seuil: 0.8)
+2026-06-22 07:43:44,379 - AIPipeline - INFO - Chat identifié : Nouveau_20260622_073819 (ID: 8)
+2026-06-22 07:43:44,388 - Database - INFO - Visite enregistrée pour cat_id: 8
+2026-06-22 07:43:44,388 - AIPipeline - INFO - Cooldown OK. Prêt pour Firebase Push !
+2026-06-22 07:43:44,388 - FirebaseSync - INFO - Upload de Y:\PokeMinou\Windows\data\images\cat_20260622_074344.jpg vers Storage...
+2026-06-22 07:43:44,751 - FirebaseSync - INFO - Upload réussi. URL publique : https://storage.googleapis.com/pokeminou-b2530.firebasestorage.app/cats/cat_20260622_074344.jpg
+2026-06-22 07:43:44,962 - FirebaseSync - INFO - Message FCM envoyé avec succès : projects/pokeminou-b2530/messages/439070745629147177
+2026-06-22 07:43:44,991 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 07:43:44,992 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 07:43:44,992 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:43:44,992 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream stopped
+2026-06-22 07:43:48,644 - EufyClient - INFO - Événement Eufy reçu : property changed
+2026-06-22 07:43:48,644 - EufyClient - INFO - Événement Eufy reçu : motion detected
+2026-06-22 07:43:48,644 - EufyClient - INFO - \U0001f6a8 Déclencheur Eufy activé (motion detected) !
+2026-06-22 07:43:48,644 - EufyClient - INFO - Lancement de l'enregistrement P2P pour T8113T7124280410...
+2026-06-22 07:43:48,645 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_live', 'result': {'async': True}}
+2026-06-22 07:43:48,765 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:43:48,765 - EufyClient - INFO - Événement Eufy reçu : rtsp livestream started
+2026-06-22 07:43:51,415 - EufyClient - INFO - Événement Eufy reçu : livestream started
+2026-06-22 07:43:53,629 - EufyClient - INFO - Fin de l'enregistrement vidéo P2P. Arrêt du flux...
+2026-06-22 07:43:53,629 - EufyClient - INFO - Déclenchement du callback IA avec le fichier vidéo H264...
+2026-06-22 07:43:53,629 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-22 07:43:53,629 - AIPipeline - INFO - Extraction d'une frame HD depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream.h264
+2026-06-22 07:43:53,962 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-22 07:43:54,102 - AIPipeline - INFO - \U0001f431 Chat détecté avec succès à la frame 10 !
+2026-06-22 07:43:54,137 - AIPipeline - INFO - Saturation moyenne de l'image : 77.50
+2026-06-22 07:43:54,145 - AIPipeline - INFO - Image détectée comme DIURNE. Extraction des features ReID...
+2026-06-22 07:43:54,217 - AIPipeline - INFO - Meilleur score de similarité : 0.80 (Seuil: 0.8)
+2026-06-22 07:43:54,217 - AIPipeline - INFO - Aucun chat connu correspondant. Création d'un profil temporaire...
+2026-06-22 07:43:54,225 - Database - INFO - Profil chat 'Nouveau_20260622_074354' mis à jour/ajouté (ID: 9)
+2026-06-22 07:43:54,229 - Database - INFO - Visite enregistrée pour cat_id: 9
+2026-06-22 07:43:54,229 - AIPipeline - INFO - Cooldown OK. Prêt pour Firebase Push !
+2026-06-22 07:43:54,229 - FirebaseSync - INFO - Upload de Y:\PokeMinou\Windows\data\images\cat_20260622_074354.jpg vers Storage...
+2026-06-22 07:43:54,578 - FirebaseSync - INFO - Upload réussi. URL publique : https://storage.googleapis.com/pokeminou-b2530.firebasestorage.app/cats/cat_20260622_074354.jpg
+2026-06-22 07:43:55,026 - FirebaseSync - INFO - Message FCM envoyé avec succès : projects/pokeminou-b2530/messages/8795496758520368894
+2026-06-22 07:43:55,044 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'stop_live', 'result': {'async': True}}
+2026-06-22 07:43:55,044 - EufyClient - INFO - Événement Eufy reçu : livestream stopped
+2026-06-22 07:43:55,044 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:44:38,778 - EufyClient - INFO - Événement Eufy reçu : database query latest
+2026-06-22 07:44:38,875 - EufyClient - INFO - Événement Eufy reçu : command result
+2026-06-22 07:44:38,919 - EufyClient - INFO - Événement Eufy reçu : image downloaded
+2026-06-22 07:44:38,920 - EufyClient - INFO - Événement Eufy reçu : property changed
 Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
   return await queue_join_helper(body, request, username)
 Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
@@ -248,3 +374,147 @@ Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDepr
   return await queue_join_helper(body, request, username)
 Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
   return await queue_join_helper(body, request, username)
+2026-06-22 07:46:28,713 - Database - INFO - Profil chat 'Pas_Mousti' mis à jour/ajouté (ID: 10)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 07:52:54,954 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : no close frame received or sent
+2026-06-22 07:52:54,954 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+2026-06-22 07:53:24,960 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 07:53:29,050 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 07:53:29,050 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+2026-06-22 07:53:59,054 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 07:54:03,138 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 07:54:03,138 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 07:54:33,138 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 07:54:37,200 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 07:54:37,200 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 07:55:07,202 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 07:55:11,304 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 07:55:11,304 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 07:55:41,318 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 07:55:45,410 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 07:55:45,410 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+2026-06-22 07:56:15,423 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 07:56:19,518 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 07:56:19,518 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+2026-06-22 07:56:49,528 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 07:56:49,534 - EufyClient - INFO - Connexion WebSocket établie avec succès !
+2026-06-22 07:56:49,536 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'set_schema', 'result': {}}
+2026-06-22 07:56:49,538 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_listening', 'result': {'state': {'driver': {'version': '4.0.0', 'connected': True, 'pushConnected': True, 'mqttConnected': False}, 'stations': [
+2026-06-22 07:57:30,869 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : no close frame received or sent
+2026-06-22 07:57:30,869 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 07:58:00,874 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 07:58:00,877 - EufyClient - INFO - Connexion WebSocket établie avec succès !
+2026-06-22 07:58:00,878 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'set_schema', 'result': {}}
+2026-06-22 07:58:00,879 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_listening', 'result': {'state': {'driver': {'version': '4.0.0', 'connected': True, 'pushConnected': True, 'mqttConnected': False}, 'stations': [
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 07:59:30,893 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : no close frame received or sent
+2026-06-22 07:59:30,893 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+2026-06-22 08:00:00,895 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 08:00:04,992 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 08:00:04,992 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+2026-06-22 08:00:35,001 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 08:00:39,115 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 08:00:39,116 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+2026-06-22 08:01:09,131 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 08:01:13,236 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 08:01:13,236 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+2026-06-22 08:01:43,245 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 08:01:47,357 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 08:01:47,357 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 08:02:17,366 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 08:02:21,464 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 08:02:21,464 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 08:02:51,475 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 08:02:55,569 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 08:02:55,569 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 08:03:25,583 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 08:03:29,678 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 08:03:29,678 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 08:03:59,685 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 08:04:03,773 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 08:04:03,773 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+2026-06-22 08:04:33,783 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 08:04:37,884 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 08:04:37,884 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 08:05:07,890 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 08:05:11,968 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 08:05:11,968 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...
+2026-06-22 08:05:41,982 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 08:05:46,084 - EufyClient - WARNING - Connexion WebSocket Eufy perdue/refusée : [WinError 1225] The remote computer refused the network connection
+2026-06-22 08:05:46,084 - EufyClient - INFO - Reconnexion Eufy dans 30 secondes...

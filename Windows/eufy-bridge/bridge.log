@@ -1,0 +1,4 @@
+[37m2026-06-22 12:14:30.740[39m[0m[0m	[34m[1mINFO[22m[39m[0m[0m	[1m[37meufy-security-ws[39m[22m[0m[0m	Eufy Security server listening on host localhost, port 3000
+[37m2026-06-22 12:14:31.676[39m[0m[0m	[34m[1mINFO[22m[39m[0m[0m	[1m[37meufy-security-ws:eufy-security-client[39m[22m[0m[0m	[push] [generateFid] generateFid d_pLAdScAEGl9z3c2yn6l8
+[37m2026-06-22 12:14:31.776[39m[0m[0m	[34m[1mINFO[22m[39m[0m[0m	[1m[37meufy-security-ws:eufy-security-client[39m[22m[0m[0m	[http] [Station.onConnect] Connected to station T8010T1523282BFA on host 10.0.0.158 and port 13247
+[37m2026-06-22 12:14:42.764[39m[0m[0m	[34m[1mINFO[22m[39m[0m[0m	[1m[37meufy-security-ws:eufy-security-client[39m[22m[0m[0m	[main] Push notification connection successfully established

@@ -1,0 +1,32 @@
+Lancement silencieux en cours... 
+==============================================
+       Lancement de PokeMinou (Bridge + AI)
+==============================================
+
+[1/2] Lancement du pont Eufy en arriere-plan...
+
+[2/2] Lancement du backend AI PokeMinou...
+Activation de l'environnement virtuel...
+L'interface d'administration Gradio sera disponible sur :
+http://10.0.0.30:8095
+
+2026-06-22 08:14:40,507 - Main - INFO - Démarrage du système PokeMinou Backend...
+2026-06-22 08:14:40,508 - Database - INFO - Base de données SQLite initialisée à Y:\PokeMinou\Windows\data\pokeminou.db
+2026-06-22 08:14:40,508 - AIPipeline - INFO - Initialisation du pipeline IA (YOLOv8 + ReID)...
+2026-06-22 08:14:40,533 - ReID - INFO - Chargement du modèle ResNet50 pour le ReID...
+2026-06-22 08:14:41,114 - UI - INFO - Démarrage de l'interface Gradio sur http://127.0.0.1:8095
+2026-06-22 08:14:41,222 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-initiated-analytics "HTTP/1.1 200 OK"
+2026-06-22 08:14:41,480 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-22 08:14:43,386 - httpx - INFO - HTTP Request: GET http://localhost:8095/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-06-22 08:14:45,436 - httpx - INFO - HTTP Request: HEAD http://localhost:8095/ "HTTP/1.1 200 OK"
+2026-06-22 08:14:45,441 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-22 08:14:45,445 - EufyClient - INFO - Connexion WebSocket établie avec succès !
+2026-06-22 08:14:45,447 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'set_schema', 'result': {}}
+2026-06-22 08:14:45,448 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_listening', 'result': {'state': {'driver': {'version': '4.0.0', 'connected': True, 'pushConnected': True, 'mqttConnected': False}, 'stations': [
+2026-06-22 08:14:45,473 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-launched-telemetry "HTTP/1.1 200 OK"
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
