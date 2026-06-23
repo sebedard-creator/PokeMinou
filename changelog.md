@@ -11,9 +11,8 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 - **Bug YOLO :** Correction du système de configuration où YOLO lisait le seuil de confiance (`CONFIDENCE_THRESHOLD`) de façon statique lors de l'initialisation. Il interroge désormais le module dynamiquement à chaque prédiction.
 - **Paramètres Amnésiques :** Ajout d'une véritable persistance des paramètres modifiés via le Dashboard Gradio. Les valeurs sont maintenant sauvegardées dans `data/settings.json` et rechargées au redémarrage du serveur.
 - **UI Galerie :** Correction du confinement artificiel de l'interface (`max-width: 1200px` désactivé) et ajout de la gestion adaptative de la hauteur de la galerie (`85vh`) pour un affichage plein écran sans écrasement vertical des images.
-- **Crash de Lancement Silencieux (Locks) :** Refonte de la chaîne de lancement (`StartPokeMinou.vbs`, `start_silent.bat`, `system_engine.bat`). Résolution des problèmes de guillemets Windows et de variables PATH en utilisant le nom court `PROGRA~1` et un sous-script `run_node.bat`. 
-- **Processus Zombies :** Mise à jour majeure de `stop.bat` pour détecter et tuer les processus `cmd.exe` orphelins qui verrouillaient les fichiers de log (`startup.log`) et empêchaient le redémarrage.
-
+- **Sécurité et Authentification :** Création du script Python `sync_env.py` greffé dans `system_engine.bat` pour synchroniser dynamiquement les variables d'environnement (`.env`) avec le `config.json` de Node.js au démarrage. Cela empêche l'exposition des secrets en console et résout la désynchronisation du mot de passe lors de son changement.
+- **Processus Zombies & Stop.bat :** Correction majeure de `stop.bat`. L'échappement natif de `cmd.exe` (`%%`) n'était pas respecté dans le filtre `CommandLine` de WMI, ce qui empêchait la fermeture du serveur Python/Gradio. Le filtre utilise désormais `name='python.exe'` conjointement avec l'échappement fonctionnel.
 ### Ajouté
 - **Indicateur d'État Eufy :** Intégration d'un témoin visuel 🟢/🔴 dans l'interface d'administration Gradio pour suivre l'état de connexion en temps réel entre le script Python et le pont Node.js (`eufy-security-ws`).
 

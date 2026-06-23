@@ -10,23 +10,21 @@ Activation de l'environnement virtuel...
 L'interface d'administration Gradio sera disponible sur :
 http://10.0.0.30:8095
 
-2026-06-23 09:58:07,030 - Main - INFO - Démarrage du système PokeMinou Backend...
-2026-06-23 09:58:07,031 - Database - INFO - Base de données SQLite initialisée à Y:\PokeMinou\Windows\data\pokeminou.db
-2026-06-23 09:58:07,031 - AIPipeline - INFO - Initialisation du pipeline IA (YOLOv8 + ReID)...
-2026-06-23 09:58:07,055 - ReID - INFO - Chargement du modèle ResNet50 pour le ReID...
-2026-06-23 09:58:07,644 - UI - INFO - Démarrage de l'interface Gradio sur http://127.0.0.1:8095
-2026-06-23 09:58:07,746 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-initiated-analytics "HTTP/1.1 200 OK"
-2026-06-23 09:58:07,995 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-06-23 10:37:06,080 - Main - INFO - Démarrage du système PokeMinou Backend...
+2026-06-23 10:37:06,081 - Database - INFO - Base de données SQLite initialisée à Y:\PokeMinou\Windows\data\pokeminou.db
+2026-06-23 10:37:06,081 - AIPipeline - INFO - Initialisation du pipeline IA (YOLOv8 + ReID)...
+2026-06-23 10:37:06,106 - ReID - INFO - Chargement du modèle ResNet50 pour le ReID...
+2026-06-23 10:37:06,706 - UI - INFO - Démarrage de l'interface Gradio sur http://127.0.0.1:8095
+2026-06-23 10:37:06,853 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-initiated-analytics "HTTP/1.1 200 OK"
+2026-06-23 10:37:07,061 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
 Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
   return await queue_join_helper(body, request, username)
-2026-06-23 09:58:09,923 - httpx - INFO - HTTP Request: GET http://localhost:8095/gradio_api/startup-events "HTTP/1.1 200 OK"
-2026-06-23 09:58:11,992 - httpx - INFO - HTTP Request: HEAD http://localhost:8095/ "HTTP/1.1 200 OK"
-2026-06-23 09:58:11,996 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
-2026-06-23 09:58:12,001 - EufyClient - INFO - Connexion WebSocket établie avec succès !
-2026-06-23 09:58:12,002 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'set_schema', 'result': {}}
-2026-06-23 09:58:12,003 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_listening', 'result': {'state': {'driver': {'version': '4.0.0', 'connected': True, 'pushConnected': True, 'mqttConnected': False}, 'stations': [
-2026-06-23 09:58:12,033 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-launched-telemetry "HTTP/1.1 200 OK"
-Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
-  return await queue_join_helper(body, request, username)
+2026-06-23 10:37:08,994 - httpx - INFO - HTTP Request: GET http://localhost:8095/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-06-23 10:37:11,055 - httpx - INFO - HTTP Request: HEAD http://localhost:8095/ "HTTP/1.1 200 OK"
+2026-06-23 10:37:11,059 - EufyClient - INFO - Tentative de connexion Eufy WebSocket à ws://localhost:3000...
+2026-06-23 10:37:11,064 - EufyClient - INFO - Connexion WebSocket établie avec succès !
+2026-06-23 10:37:11,065 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'set_schema', 'result': {}}
+2026-06-23 10:37:11,067 - EufyClient - INFO - Réponse Eufy : {'type': 'result', 'success': True, 'messageId': 'start_listening', 'result': {'state': {'driver': {'version': '4.0.0', 'connected': True, 'pushConnected': True, 'mqttConnected': False}, 'stations': [
+2026-06-23 10:37:11,094 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-launched-telemetry "HTTP/1.1 200 OK"
 Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
   return await queue_join_helper(body, request, username)

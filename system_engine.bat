@@ -11,6 +11,7 @@ if exist "%~dp0.env" (
     echo [ATTENTION] Fichier .env introuvable a la racine. Les identifiants Eufy ne sont pas configures !
 )
 cd /d "%~dp0Windows\eufy-bridge"
+"%~dp0Windows\venv\Scripts\python.exe" sync_env.py
 start /B "" run_node.bat
 
 :: Attendre 5 secondes pour que le port 3000 s'ouvre bien (ping fonctionne mieux en mode silencieux)
