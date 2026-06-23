@@ -7,3 +7,4 @@ serviceAccountKey.json
 google-services.json
 persistent.json
 config.json
+.env

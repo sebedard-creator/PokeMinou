@@ -111,8 +111,8 @@ class EufyClient:
                             "serialNumber": serial_number
                         }))
                         
-                        # Programmation de l'arrêt (3 secondes de clip)
-                        asyncio.create_task(self.stop_livestream_after_delay(serial_number, 5.0))
+                        # Programmation de l'arrêt (10 secondes de clip pour s'assurer d'avoir le chat complet)
+                        asyncio.create_task(self.stop_livestream_after_delay(serial_number, 10.0))
 
                 elif event_name in ["livestream video data", "livestream video data payload"] and self.is_streaming:
                     buffer_dict = event_data.get("buffer", {})

@@ -5,11 +5,13 @@ echo ==============================================
 echo.
 
 echo [1/2] Lancement du pont Eufy en arriere-plan...
-set USERNAME=sebedard666@hotmail.com
-set PASSWORD=PokeMinou666$$$
-set HOST=127.0.0.1
+if exist "%~dp0.env" (
+    for /f "usebackq tokens=1,* delims==" %%A in ("%~dp0.env") do set "%%A=%%B"
+) else (
+    echo [ATTENTION] Fichier .env introuvable a la racine. Les identifiants Eufy ne sont pas configures !
+)
 cd /d "%~dp0Windows\eufy-bridge"
-start /B "" node node_modules\eufy-security-ws\dist\bin\server.js > bridge.log 2>&1
+start /B "" run_node.bat
 
 :: Attendre 5 secondes pour que le port 3000 s'ouvre bien (ping fonctionne mieux en mode silencieux)
 ping 127.0.0.1 -n 6 > nul

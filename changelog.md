@@ -10,7 +10,9 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 ### Corrigé
 - **Bug YOLO :** Correction du système de configuration où YOLO lisait le seuil de confiance (`CONFIDENCE_THRESHOLD`) de façon statique lors de l'initialisation. Il interroge désormais le module dynamiquement à chaque prédiction.
 - **Paramètres Amnésiques :** Ajout d'une véritable persistance des paramètres modifiés via le Dashboard Gradio. Les valeurs sont maintenant sauvegardées dans `data/settings.json` et rechargées au redémarrage du serveur.
-- **Crash de Lancement Silencieux :** Remplacement de la commande `timeout` (qui plante lorsqu'invoquée sans console) par un délai réseau `ping` dans `start.bat`. Ajout du `CurrentDirectory` forcé dans `StartPokeMinou.vbs`. Cela permet au backend de démarrer parfaitement en mode invisible (arrière-plan).
+- **UI Galerie :** Correction du confinement artificiel de l'interface (`max-width: 1200px` désactivé) et ajout de la gestion adaptative de la hauteur de la galerie (`85vh`) pour un affichage plein écran sans écrasement vertical des images.
+- **Crash de Lancement Silencieux (Locks) :** Refonte de la chaîne de lancement (`StartPokeMinou.vbs`, `start_silent.bat`, `system_engine.bat`). Résolution des problèmes de guillemets Windows et de variables PATH en utilisant le nom court `PROGRA~1` et un sous-script `run_node.bat`. 
+- **Processus Zombies :** Mise à jour majeure de `stop.bat` pour détecter et tuer les processus `cmd.exe` orphelins qui verrouillaient les fichiers de log (`startup.log`) et empêchaient le redémarrage.
 
 ### Ajouté
 - **Indicateur d'État Eufy :** Intégration d'un témoin visuel 🟢/🔴 dans l'interface d'administration Gradio pour suivre l'état de connexion en temps réel entre le script Python et le pont Node.js (`eufy-security-ws`).

@@ -79,14 +79,14 @@ class AIPipeline:
                             logger.info(f"🐱 Chat détecté avec succès à la frame {i} !")
                             break
 
+                    # Sauvegarde pour le débogage visuel, peu importe si trouvé ou non
+                    from core.config import IMAGES_DIR
+                    debug_path = str(IMAGES_DIR.parent / "last_frame.jpg")
+                    cv2.imwrite(debug_path, valid_frames[-1])
+                    
                     if not cat_found:
                         logger.info("Aucun chat détecté sur l'ensemble du clip. Image ignorée.")
                         return
-                        
-                    # Sauvegarde pour le débogage visuel
-                    from core.config import IMAGES_DIR
-                    debug_path = str(IMAGES_DIR.parent / "last_frame.jpg")
-                    cv2.imwrite(debug_path, img)
                 else:
                     logger.error("Le clip vidéo est vide ou illisible.")
                     return

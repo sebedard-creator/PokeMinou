@@ -9,7 +9,12 @@ wmic process where "CommandLine like '%%python main.py%%'" call terminate
 
 echo.
 echo Arret du pont Eufy (Node.js)...
-taskkill /F /IM node.exe /T
+wmic process where "CommandLine like '%%eufy-security-ws%%'" call terminate
+
+echo.
+echo Arret des scripts de lancement silencieux...
+wmic process where "CommandLine like '%%start_silent.bat%%'" call terminate >nul 2>&1
+wmic process where "CommandLine like '%%system_engine.bat%%'" call terminate >nul 2>&1
 
 echo.
 echo Serveurs arretes avec succes !
