@@ -16,7 +16,7 @@ if os.path.exists(config_path):
     with open(config_path, 'r', encoding='utf-8') as f:
         config = json.load(f)
 else:
-    config = {"language": "en", "host": "127.0.0.1", "port": 3000}
+    config = {"language": "en", "host": "127.0.0.1", "port": 3000, "country": "CA"}
 
 if 'USERNAME' in env_vars:
     config['username'] = env_vars['USERNAME']
