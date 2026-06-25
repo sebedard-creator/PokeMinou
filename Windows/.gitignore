@@ -16,13 +16,8 @@ serviceAccountKey.json
 *.db
 *.sqlite3
 
-# Dossier data complet (vidéos h264 temporaires, base de données, photos)
+# Dossier data complet (vidéos temporaires, base de données, photos)
 data/
-
-# Pont Eufy (Très Critique : contient le mot de passe et le token de session Eufy !)
-eufy-bridge/config.json
-eufy-bridge/persistent.json
-eufy-bridge/node_modules/
 
 # Modèles IA (lourds)
 ai/weights/*.pt

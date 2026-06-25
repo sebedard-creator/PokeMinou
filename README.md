@@ -15,16 +15,16 @@ The PokeMinou ecosystem is divided into two distinct but deeply integrated progr
 Located in the `Windows/` folder, this Python-based backend acts as a highly optimized, local processing server. 
 
 ### Key Features:
-- **Eufy Camera Integration (`eufy-security-ws`)**: Hooks into the Eufy cloud using a WebSocket bridge. It listens instantly to "Motion Detected" events across all your Eufy cameras.
-- **P2P Video Streaming**: When motion is detected, it connects directly to the specific Eufy camera that triggered the alert, recording a 5-second raw `.h264` video clip.
-- **AI Object Detection (YOLOv8)**: Intelligently scans multiple frames across the recorded 5-second raw `.h264` video clip to ensure no fast-moving cat is missed, then crops the best image perfectly around the cat's face/body.
+- **Local RTSP Radar (`rtsp_monitor`)**: A 100% local, standalone TCP ping engine that continuously polls your Eufy camera on port 554 without relying on any Eufy cloud APIs or Node.js bridges.
+- **Local Video Capture**: When motion is detected, it connects directly to the Eufy camera and captures a fast 10-second raw `.mp4` video clip using `ffmpeg`.
+- **AI Object Detection (YOLOv8)**: Intelligently skips the first 3 seconds of the clip (camera wake-up lag), then scans multiple frames to ensure no fast-moving cat is missed, and crops the best image perfectly around the cat's face/body.
 - **AI Re-Identification (ResNet50)**: Extracts a 2048-dimensional mathematical vector from the cropped image and compares it against known cats in the local SQLite database using Cosine Similarity (default threshold: 80%).
 - **Smart Notification Engine**:
   - Automatically creates a new profile if the cat is unknown.
   - Features an anti-spam "Cooldown" system (default 2 minutes, dynamically adjustable) to prevent notification flooding if a cat lingers in front of the camera.
   - Automatically ignores nighttime detections using a generic `Chat_Nuit_Mystere` profile (since infrared images break color-based facial recognition).
 - **Gradio Admin Web UI**: Accessible locally at `http://127.0.0.1:8095`. Allows you to:
-  - Check the live connection status (🟢/🔴) of the Eufy WebSocket bridge.
+  - Check the live connection status (🟢/🔴) of the local RTSP Radar.
   - View the gallery of recent cat visits.
   - Correct the AI if it makes a mistake (teach the AI a new cat's face or correct a false positive).
   - Adjust the YOLO confidence threshold and notification cooldown slider on the fly (settings are persistently saved to `settings.json`).
@@ -52,8 +52,8 @@ Located in the `Android/` folder, this native Android application is built with 
 ## 🚀 Getting Started
 
 ### Backend Setup:
-1. Ensure the Eufy Security WebSocket bridge is running.
-2. Configure your `core/config.py` with your RTSP/Eufy URLs and Firebase Storage bucket.
+1. Copy your RTSP stream link and configure it in the root `.env` file as `RTSP_URL=rtsp://user:password@ip/live2`.
+2. Configure your `core/config.py` with your Firebase Storage bucket.
 3. Place your `serviceAccountKey.json` from Firebase in the root of the Windows folder.
 4. Run `start.bat` (or use `StartPokeMinou.vbs` to run it invisibly on Windows Startup).
 

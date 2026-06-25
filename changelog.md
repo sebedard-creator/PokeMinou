@@ -2,6 +2,14 @@
 
 Toutes les modifications notables apportées à ce projet seront documentées dans ce fichier.
 
+## [1.0.0-dev.4] - 2026-06-25
+### Changé
+- **Stratégie RTSP (Bouclier Local) :** Remplacement total de l'approche Cloud API Eufy par un radar TCP local (`rtsp_monitor.py`). Plus aucun compte Eufy, Shadowban, ou Firebase Cloud Messaging n'est requis côté Eufy. Le script Python écoute directement la caméra sur le réseau local via RTSP (port 554).
+- **Suppression Node.js :** Le dossier `eufy-bridge` et le serveur Node.js `eufy-security-ws` ont été entièrement supprimés de l'architecture. Le projet est désormais 100% Python.
+- **Vitesse Vidéo :** L'enregistrement via `ffmpeg` se fait maintenant dans un conteneur `.mp4` (au lieu de `.h264`) pour préserver les métadonnées de temps (15 FPS), empêchant les vidéos de jouer en accéléré.
+- **Stabilisation IA :** Le pipeline IA ignore désormais les 3 premières secondes (environ 45 frames) des vidéos capturées pour laisser le temps au flux de la caméra de se stabiliser (élimination des frames grises au réveil de la caméra sur batterie).
+- **Nettoyage des scripts :** Les fichiers `.bat` de lancement ont été allégés pour lancer uniquement l'environnement Python.
+
 ## [1.0.0-dev.3] - 2026-06-21
 ### Changé
 - **Extraction Vidéo IA :** Refonte majeure de `process_image()`. L'IA ne se contente plus de lire aveuglément la 10ème frame, mais elle scanne l'intégralité du clip vidéo (1 frame sur 5) jusqu'à ce qu'elle trouve une détection positive d'un chat. Cela garantit une capture fiable même si le chat est furtif ou en mouvement rapide.

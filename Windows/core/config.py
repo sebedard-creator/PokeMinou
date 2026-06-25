@@ -14,9 +14,8 @@ IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 DB_PATH = DATA_DIR / "pokeminou.db"
 
 # --- Configuration Eufy ---
-EUFY_WS_URL = "ws://localhost:3000"
-# Remplace avec l'IP de ta caméra et tes identifiants (NAS/RTSP)
-RTSP_URL = "rtsp://7fc03VEDquqTE8kY:w8ha3qJJM8CEw24I@10.0.0.217/live1"
+# La variable RTSP_URL est définie dans le fichier .env à la racine (Y:\PokeMinou\.env)
+RTSP_URL = os.environ.get("RTSP_URL", "rtsp://user:pass@ip/live2")
 
 # --- Configuration IA (YOLO) ---
 YOLO_MODEL_PATH = BASE_DIR / "ai" / "weights" / "yolov8n.pt"

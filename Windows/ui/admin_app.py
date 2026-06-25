@@ -69,9 +69,9 @@ body {
 """
 
 class AdminApp:
-    def __init__(self, db_manager: DBManager, eufy_client=None):
+    def __init__(self, db_manager: DBManager, rtsp_monitor=None):
         self.db = db_manager
-        self.eufy_client = eufy_client
+        self.rtsp_monitor = rtsp_monitor
 
     def get_recent_visits(self):
         """Récupère les 20 dernières visites depuis la base de données pour la galerie."""
@@ -234,9 +234,9 @@ class AdminApp:
                         # Mettre à jour la liste des chats
                         cats = [c["name"] for c in self.db.get_all_cats()]
                         
-                        bridge_state = "🔴 **DÉCONNECTÉ** (Pont Eufy inactif)"
-                        if self.eufy_client and getattr(self.eufy_client, 'is_connected', False):
-                            bridge_state = "🟢 **CONNECTÉ** (En attente de mouvements)"
+                        bridge_state = "🔴 **DÉCONNECTÉ** (Radar inactif)"
+                        if self.rtsp_monitor and getattr(self.rtsp_monitor, 'is_running', False):
+                            bridge_state = "🟢 **CONNECTÉ** (Radar RTSP en attente)"
                             
                         # Retourner les items pour la galerie, les raw data, le Dropdown mis à jour, et l'état du pont
                         return items, rows, gr.update(choices=list(set(cats))), f"Statut du Pont Eufy : {bridge_state}"
@@ -261,9 +261,9 @@ class AdminApp:
 
         return app
 
-def start_gradio(db_manager: DBManager, eufy_client=None):
+def start_gradio(db_manager: DBManager, rtsp_monitor=None):
     """Point d'entrée pour lancer l'interface."""
-    admin_app = AdminApp(db_manager, eufy_client)
+    admin_app = AdminApp(db_manager, rtsp_monitor)
     app = admin_app.build_ui()
     # Lancement sur le port 8095
     logger.info("Démarrage de l'interface Gradio sur http://127.0.0.1:8095")

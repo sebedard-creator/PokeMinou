@@ -4,7 +4,7 @@ import threading
 import time
 import schedule
 
-from core.eufy_ws import EufyClient
+from core.rtsp_monitor import RTSPMonitor
 from db.database import DBManager
 from ai.pipeline import AIPipeline
 from ui.admin_app import start_gradio
@@ -36,14 +36,14 @@ async def main():
     db_manager = DBManager()
     ai_pipeline = AIPipeline(db_manager)
     
-    # 3. Initialiser le client Eufy avec le vrai callback IA
-    eufy_client = EufyClient(image_callback=ai_pipeline.process_image)
+    # 3. Initialiser le radar RTSP avec le vrai callback IA
+    rtsp_monitor = RTSPMonitor(image_callback=ai_pipeline.process_image)
     
     # 4. Lancer l'interface Web d'administration Gradio
-    start_gradio(db_manager, eufy_client)
+    start_gradio(db_manager, rtsp_monitor)
     
-    # Lancement de la boucle de surveillance Eufy (bloquante)
-    await eufy_client.connect_and_listen()
+    # Lancement de la boucle de surveillance (bloquante)
+    await rtsp_monitor.connect_and_listen()
 
 if __name__ == "__main__":
     try:

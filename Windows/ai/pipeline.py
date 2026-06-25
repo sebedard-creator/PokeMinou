@@ -46,21 +46,27 @@ class AIPipeline:
         cat_found = False
         import core.config as config
 
-        if isinstance(picture_bytes_or_path, str) and picture_bytes_or_path.endswith('.h264'):
-            logger.info(f"Extraction d'une frame HD depuis le clip vidéo : {picture_bytes_or_path}")
+        if isinstance(picture_bytes_or_path, str) and picture_bytes_or_path.endswith('.mp4'):
+            logger.info(f"Extraction d'une frame nette depuis le clip vidéo : {picture_bytes_or_path}")
             cap = cv2.VideoCapture(picture_bytes_or_path)
             if cap.isOpened():
                 valid_frames = []
+                frame_count = 0
                 while True:
                     ret, frame = cap.read()
                     if not ret:
                         break
-                    valid_frames.append(frame)
+                    
+                    # Ignorer les 45 premières frames (environ 3 secondes à 15 FPS) car l'image est souvent figée/grise au réveil
+                    if frame_count >= 45:
+                        valid_frames.append(frame)
+                    
+                    frame_count += 1
                 cap.release()
                 
                 if valid_frames:
                     logger.info("Analyse des frames vidéo à la recherche d'un chat...")
-                    start_idx = min(5, len(valid_frames) - 1)
+                    start_idx = 0
                     
                     for i in range(start_idx, len(valid_frames), 5):
                         test_img = valid_frames[i]
@@ -91,7 +97,7 @@ class AIPipeline:
                     logger.error("Le clip vidéo est vide ou illisible.")
                     return
             else:
-                logger.error("Impossible d'ouvrir le fichier vidéo .h264.")
+                logger.error("Impossible d'ouvrir le fichier vidéo .mp4.")
                 return
         else:
             # Traitement d'une image classique (test manuel)
