@@ -69,9 +69,9 @@ body {
 """
 
 class AdminApp:
-    def __init__(self, db_manager: DBManager, rtsp_monitor=None):
+    def __init__(self, db_manager: DBManager, rtsp_monitors=None):
         self.db = db_manager
-        self.rtsp_monitor = rtsp_monitor
+        self.rtsp_monitors = rtsp_monitors if rtsp_monitors else []
 
     def get_recent_visits(self):
         """Récupère les 20 dernières visites depuis la base de données pour la galerie."""
@@ -196,7 +196,7 @@ class AdminApp:
             with gr.Row():
                 # Colonne Gauche : Paramètres
                 with gr.Column(scale=1, elem_classes="settings-box"):
-                    bridge_status_ui = gr.Markdown("Statut du Pont Eufy : 🔄 *Vérification...*")
+                    bridge_status_ui = gr.Markdown("Statut des Radars RTSP : 🔄 *Vérification...*")
                     gr.Markdown("---")
                     gr.Markdown("### ⚙️ Paramètres du Système")
                     conf_slider = gr.Slider(minimum=10, maximum=100, value=lambda: int(config.CONFIDENCE_THRESHOLD*100), step=5, label="Confiance YOLO (%)")
@@ -234,12 +234,16 @@ class AdminApp:
                         # Mettre à jour la liste des chats
                         cats = [c["name"] for c in self.db.get_all_cats()]
                         
-                        bridge_state = "🔴 **DÉCONNECTÉ** (Radar inactif)"
-                        if self.rtsp_monitor and getattr(self.rtsp_monitor, 'is_running', False):
-                            bridge_state = "🟢 **CONNECTÉ** (Radar RTSP en attente)"
+                        bridge_state = ""
+                        for m in self.rtsp_monitors:
+                            status = "🟢" if getattr(m, 'is_running', False) else "🔴"
+                            bridge_state += f"**Caméra {m.camera_id}**: {status} &nbsp;&nbsp; "
+                            
+                        if not bridge_state:
+                            bridge_state = "🔴 **DÉCONNECTÉ** (Aucune caméra configurée)"
                             
                         # Retourner les items pour la galerie, les raw data, le Dropdown mis à jour, et l'état du pont
-                        return items, rows, gr.update(choices=list(set(cats))), f"Statut du Pont Eufy : {bridge_state}"
+                        return items, rows, gr.update(choices=list(set(cats))), f"Statut des Radars RTSP :<br>{bridge_state}"
                         
                     def on_select(evt: gr.SelectData, rows):
                         index = evt.index
@@ -261,9 +265,9 @@ class AdminApp:
 
         return app
 
-def start_gradio(db_manager: DBManager, rtsp_monitor=None):
+def start_gradio(db_manager: DBManager, rtsp_monitors=None):
     """Point d'entrée pour lancer l'interface."""
-    admin_app = AdminApp(db_manager, rtsp_monitor)
+    admin_app = AdminApp(db_manager, rtsp_monitors)
     app = admin_app.build_ui()
     # Lancement sur le port 8095
     logger.info("Démarrage de l'interface Gradio sur http://127.0.0.1:8095")

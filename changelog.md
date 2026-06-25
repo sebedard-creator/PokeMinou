@@ -2,6 +2,13 @@
 
 Toutes les modifications notables apportées à ce projet seront documentées dans ce fichier.
 
+## [1.1.0] - Support Multi-Caméras Natif
+### Added
+- **RTSP_URLS** : Possibilité de déclarer de multiples liens RTSP séparés par des virgules dans le fichier `.env`.
+- **RTSPMonitor Instances** : `main.py` lance désormais une tâche asynchrone indépendante pour chaque caméra détectée.
+- **Isolation des captures** : Chaque radar écrit dans son propre fichier (ex: `stream_Cam1.mp4`) pour empêcher les collisions lors de déclenchements simultanés.
+- **UI Dashboard** : L'interface Gradio affiche dorénavant l'état de connexion de chaque caméra indépendamment.
+
 ## [1.0.0-dev.4] - 2026-06-25
 ### Changé
 - **Stratégie RTSP (Bouclier Local) :** Remplacement total de l'approche Cloud API Eufy par un radar TCP local (`rtsp_monitor.py`). Plus aucun compte Eufy, Shadowban, ou Firebase Cloud Messaging n'est requis côté Eufy. Le script Python écoute directement la caméra sur le réseau local via RTSP (port 554).

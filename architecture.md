@@ -44,9 +44,11 @@ sequenceDiagram
 Le backend est structuré en modules indépendants (Separation of Concerns). Ce backend est désormais un monolithe 100% Python.
 
 ### A. La Couche d'Interception (Bouclier Local RTSP)
-- **Localisation** : `Windows/core/rtsp_monitor.py`
-- **Technologie** : Sockets TCP asynchrones et FFMPEG.
-- **Rôle** : La plupart des API cloud Eufy bloquant les comptes non-officiels (shadowbans), PokeMinou écoute directement le matériel en LAN. Il envoie un ping TCP silencieux au port RTSP de la caméra Eufy. Dès que la réponse passe de "404 Not Found" (Caméra en veille) à "200 OK" (Caméra réveillée par un mouvement), le moniteur déclenche une capture via `ffmpeg` au format `.mp4`.
+### 2. Radar RTSP Local (`rtsp_monitor.py`)
+- **Dédoublement d'instances (Multi-Caméras) :** Le module supporte désormais une liste d'URLs RTSP (séparées par une virgule). Il lance un "cerveau" indépendant (instance) pour chaque caméra.
+- **Bouclier TCP :** Envoie un ping (`DESCRIBE`) sur le port 554 de la caméra toutes les 2 secondes.
+- **Réveil :** Si la caméra répond `200 OK`, cela signifie qu'elle a détecté un mouvement via son capteur PIR et qu'elle s'est allumée.
+- **Capture Indépendante :** Lance immédiatement `ffmpeg` pour capturer 10 secondes de vidéo en mode "copy" (zéro délai de ré-encodage). Chaque caméra enregistre son propre fichier (`stream_Cam1.mp4`, `stream_Cam2.mp4`...) pour éviter les collisions.
 
 ### B. Le Cœur Python (Core & Utils)
 - **Localisation** : `Windows/core/` et `Windows/utils/`

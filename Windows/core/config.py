@@ -14,8 +14,9 @@ IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 DB_PATH = DATA_DIR / "pokeminou.db"
 
 # --- Configuration Eufy ---
-# La variable RTSP_URL est définie dans le fichier .env à la racine (Y:\PokeMinou\.env)
-RTSP_URL = os.environ.get("RTSP_URL", "rtsp://user:pass@ip/live2")
+# La variable RTSP_URLS est définie dans le fichier .env à la racine (Y:\PokeMinou\.env)
+_urls_raw = os.environ.get("RTSP_URLS", os.environ.get("RTSP_URL", ""))
+RTSP_URLS = [url.strip() for url in _urls_raw.split(",")] if _urls_raw else []
 
 # --- Configuration IA (YOLO) ---
 YOLO_MODEL_PATH = BASE_DIR / "ai" / "weights" / "yolov8n.pt"

@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 import asyncio
 
-from core.config import YOLO_MODEL_PATH, CAT_CLASS_ID, CONFIDENCE_THRESHOLD, IMAGES_DIR, COSINE_SIMILARITY_THRESHOLD, RTSP_URL
+from core.config import YOLO_MODEL_PATH, CAT_CLASS_ID, CONFIDENCE_THRESHOLD, IMAGES_DIR, COSINE_SIMILARITY_THRESHOLD
 from ai.reid import CatReID
 from db.database import DBManager
 from cloud.firebase_sync import firebase_mgr

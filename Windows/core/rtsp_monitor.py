@@ -3,14 +3,16 @@ import logging
 import base64
 import os
 import urllib.parse
-from core.config import RTSP_URL, IMAGES_DIR
+from core.config import IMAGES_DIR
 
 logger = logging.getLogger("RTSPMonitor")
 
 class RTSPMonitor:
-    def __init__(self, image_callback=None):
-        self.rtsp_url = RTSP_URL
+    def __init__(self, url, camera_id="1", image_callback=None):
+        self.rtsp_url = url
+        self.camera_id = camera_id
         self.image_callback = image_callback
+        self.logger = logging.getLogger(f"RTSPMonitor-Cam{self.camera_id}")
         self.is_running = False
         self.is_motion_active = False
         self.ping_interval = 2.0  # secondes
@@ -30,7 +32,7 @@ class RTSPMonitor:
             self.auth_header = f"Authorization: Basic {b64_auth}"
             self.clean_url = f"rtsp://{self.host}:{self.port}{self.path}"
         except Exception as e:
-            logger.error(f"Erreur de parsing RTSP_URL : {e}")
+            self.logger.error(f"Erreur de parsing RTSP_URL : {e}")
             self.host = None
 
     async def _ping_rtsp(self):
@@ -58,7 +60,7 @@ class RTSPMonitor:
             if "200 OK" in first_line:
                 return True
             elif "401" in first_line:
-                logger.error("Erreur 401 : Identifiants RTSP refusés.")
+                self.logger.error("Erreur 401 : Identifiants RTSP refusés.")
                 return False
             else:
                 return False
@@ -70,25 +72,25 @@ class RTSPMonitor:
 
     async def connect_and_listen(self):
         self.is_running = True
-        logger.info(f"Démarrage du radar local RTSP sur : {self.host}:{self.port}{self.path}")
+        self.logger.info(f"Démarrage du radar local RTSP sur : {self.host}:{self.port}{self.path}")
         
         while self.is_running:
             is_awake = await self._ping_rtsp()
 
             if is_awake and not self.is_motion_active:
                 self.is_motion_active = True
-                logger.info("🚨 [MOUVEMENT] Caméra réveillée ! Démarrage de la capture vidéo ffmpeg...")
+                self.logger.info("🚨 [MOUVEMENT] Caméra réveillée ! Démarrage de la capture vidéo ffmpeg...")
                 await self._record_stream()
             elif not is_awake and self.is_motion_active:
                 self.is_motion_active = False
-                logger.info("💤 [FIN DE MOUVEMENT] La caméra s'est rendormie.")
+                self.logger.info("💤 [FIN DE MOUVEMENT] La caméra s'est rendormie.")
             
             # Attendre avant le prochain ping
             await asyncio.sleep(self.ping_interval)
 
     async def _record_stream(self):
         """Lance ffmpeg pour capturer le flux RTSP dans un .mp4."""
-        output_file = str(IMAGES_DIR.parent / "stream.mp4")
+        output_file = str(IMAGES_DIR.parent / f"stream_Cam{self.camera_id}.mp4")
         
         # Commande ffmpeg (capture brute sans ré-encodage, limité à 10 secondes pour garantir un clip rapide)
         process = await asyncio.create_subprocess_exec(
@@ -104,17 +106,17 @@ class RTSPMonitor:
         # On attend la fin de ffmpeg (timeout de sécurité de 15s)
         try:
             await asyncio.wait_for(process.wait(), timeout=15.0)
-            logger.info("✅ [CAPTURE TERMINÉE] Fichier sauvegardé sous stream.mp4.")
+            self.logger.info(f"✅ [CAPTURE TERMINÉE] Fichier sauvegardé sous stream_Cam{self.camera_id}.mp4.")
         except asyncio.TimeoutError:
             process.kill()
-            logger.warning("Ffmpeg a été interrompu après le délai maximum.")
+            self.logger.warning("Ffmpeg a été interrompu après le délai maximum.")
             
         # Déclenchement de l'IA
         if self.image_callback:
-            logger.info("Déclenchement de l'analyse IA sur le fichier mp4...")
+            self.logger.info("Déclenchement de l'analyse IA sur le fichier mp4...")
             # On lance la tâche en arrière-plan pour ne pas bloquer le radar
             asyncio.create_task(self.image_callback(output_file))
 
     def stop(self):
         self.is_running = False
-        logger.info("Arrêt du radar RTSP...")
+        self.logger.info("Arrêt du radar RTSP...")

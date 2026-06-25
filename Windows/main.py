@@ -36,14 +36,23 @@ async def main():
     db_manager = DBManager()
     ai_pipeline = AIPipeline(db_manager)
     
-    # 3. Initialiser le radar RTSP avec le vrai callback IA
-    rtsp_monitor = RTSPMonitor(image_callback=ai_pipeline.process_image)
+    # 3. Initialiser les radars RTSP pour chaque URL configurée
+    from core.config import RTSP_URLS
     
+    monitors = []
+    for idx, url in enumerate(RTSP_URLS, start=1):
+        monitor = RTSPMonitor(url=url, camera_id=str(idx), image_callback=ai_pipeline.process_image)
+        monitors.append(monitor)
+    
+    if not monitors:
+        logger.error("Aucune URL RTSP configurée. Veuillez vérifier le fichier .env.")
+        return
+        
     # 4. Lancer l'interface Web d'administration Gradio
-    start_gradio(db_manager, rtsp_monitor)
+    start_gradio(db_manager, monitors)
     
-    # Lancement de la boucle de surveillance (bloquante)
-    await rtsp_monitor.connect_and_listen()
+    # Lancement de la boucle de surveillance pour tous les radars (bloquant)
+    await asyncio.gather(*(m.connect_and_listen() for m in monitors))
 
 if __name__ == "__main__":
     try:
