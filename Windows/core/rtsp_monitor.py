@@ -74,6 +74,15 @@ class RTSPMonitor:
         self.is_running = True
         self.logger.info(f"Démarrage du radar local RTSP sur : {self.host}:{self.port}{self.path}")
         
+        # Décalage de démarrage pour éviter que les deux radars ne pingent la HomeBase
+        # exactement à la même milliseconde (ce qui peut causer une erreur 401)
+        try:
+            delay = int(self.camera_id) * 0.5
+            await asyncio.sleep(delay)
+        except ValueError:
+            pass
+            
+        
         while self.is_running:
             is_awake = await self._ping_rtsp()
 

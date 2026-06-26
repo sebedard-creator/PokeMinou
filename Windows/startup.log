@@ -9,93 +9,27 @@ Activation de l'environnement virtuel...
 L'interface d'administration Gradio sera disponible sur :
 http://10.0.0.30:8095
 
-2026-06-25 18:11:16,505 - Main - INFO - Démarrage du système PokeMinou Backend...
-2026-06-25 18:11:16,507 - Database - INFO - Base de données SQLite initialisée à Y:\PokeMinou\Windows\data\pokeminou.db
-2026-06-25 18:11:16,507 - AIPipeline - INFO - Initialisation du pipeline IA (YOLOv8 + ReID)...
-2026-06-25 18:11:16,560 - ReID - INFO - Chargement du modèle ResNet50 pour le ReID...
-2026-06-25 18:11:17,268 - UI - INFO - Démarrage de l'interface Gradio sur http://127.0.0.1:8095
-2026-06-25 18:11:17,445 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-initiated-analytics "HTTP/1.1 200 OK"
-2026-06-25 18:11:17,701 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-06-25 21:59:51,722 - Main - INFO - Démarrage du système PokeMinou Backend...
+2026-06-25 21:59:51,724 - Database - INFO - Base de données SQLite initialisée à Y:\PokeMinou\Windows\data\pokeminou.db
+2026-06-25 21:59:51,724 - AIPipeline - INFO - Initialisation du pipeline IA (YOLOv8 + ReID)...
+2026-06-25 21:59:51,769 - ReID - INFO - Chargement du modèle ResNet50 pour le ReID...
+2026-06-25 21:59:52,464 - UI - INFO - Démarrage de l'interface Gradio sur http://127.0.0.1:8095
+2026-06-25 21:59:52,650 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-initiated-analytics "HTTP/1.1 200 OK"
+2026-06-25 21:59:52,896 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-06-25 21:59:54,783 - httpx - INFO - HTTP Request: GET http://localhost:8095/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-06-25 21:59:56,887 - httpx - INFO - HTTP Request: HEAD http://localhost:8095/ "HTTP/1.1 200 OK"
+2026-06-25 21:59:56,892 - RTSPMonitor-Cam1 - INFO - Démarrage du radar local RTSP sur : 10.0.0.158:554/live1
+2026-06-25 21:59:56,892 - RTSPMonitor-Cam2 - INFO - Démarrage du radar local RTSP sur : 10.0.0.158:554/live2
+2026-06-25 21:59:56,931 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-launched-telemetry "HTTP/1.1 200 OK"
+2026-06-25 21:59:57,426 - RTSPMonitor-Cam1 - INFO - \U0001f6a8 [MOUVEMENT] Caméra réveillée ! Démarrage de la capture vidéo ffmpeg...
 Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
   return await queue_join_helper(body, request, username)
-2026-06-25 18:11:19,650 - httpx - INFO - HTTP Request: GET http://localhost:8095/gradio_api/startup-events "HTTP/1.1 200 OK"
-2026-06-25 18:11:21,709 - httpx - INFO - HTTP Request: HEAD http://localhost:8095/ "HTTP/1.1 200 OK"
-2026-06-25 18:11:21,714 - RTSPMonitor-Cam1 - INFO - Démarrage du radar local RTSP sur : 10.0.0.158:554/live2
-2026-06-25 18:11:21,714 - RTSPMonitor-Cam2 - INFO - Démarrage du radar local RTSP sur : 10.0.0.158:554/live1
-2026-06-25 18:11:21,725 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:21,727 - RTSPMonitor-Cam2 - INFO - \U0001f6a8 [MOUVEMENT] Caméra réveillée ! Démarrage de la capture vidéo ffmpeg...
-2026-06-25 18:11:21,754 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-launched-telemetry "HTTP/1.1 200 OK"
 Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
   return await queue_join_helper(body, request, username)
-2026-06-25 18:11:23,749 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:25,762 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:27,774 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:29,783 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:31,802 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:32,329 - RTSPMonitor-Cam2 - INFO - \u2705 [CAPTURE TERMINÉE] Fichier sauvegardé sous stream_Cam2.mp4.
-2026-06-25 18:11:32,329 - RTSPMonitor-Cam2 - INFO - Déclenchement de l'analyse IA sur le fichier mp4...
-2026-06-25 18:11:32,329 - AIPipeline - INFO - Démarrage de la séquence IA...
-2026-06-25 18:11:32,329 - AIPipeline - INFO - Extraction d'une frame nette depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream_Cam2.mp4
-2026-06-25 18:11:33,332 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
-2026-06-25 18:11:36,383 - AIPipeline - INFO - \U0001f431 Chat détecté avec succès à la frame 100 !
-2026-06-25 18:11:36,421 - AIPipeline - INFO - Saturation moyenne de l'image : 0.00
-2026-06-25 18:11:36,426 - AIPipeline - INFO - Image détectée comme NOCTURNE (Infrarouge). ID générique attribué.
-2026-06-25 18:11:36,432 - Database - INFO - Visite enregistrée pour cat_id: 1
-2026-06-25 18:11:36,432 - AIPipeline - INFO - Cooldown OK. Prêt pour Firebase Push !
-2026-06-25 18:11:36,432 - FirebaseSync - INFO - Upload de Y:\PokeMinou\Windows\data\images\cat_20260625_181136.jpg vers Storage...
-2026-06-25 18:11:37,476 - FirebaseSync - INFO - Upload réussi. URL publique : https://storage.googleapis.com/pokeminou-b2530.firebasestorage.app/cats/cat_20260625_181136.jpg
-2026-06-25 18:11:37,915 - FirebaseSync - INFO - Message FCM envoyé avec succès : projects/pokeminou-b2530/messages/5582049291452300221
-2026-06-25 18:11:37,972 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:39,996 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:42,014 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:44,051 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:46,064 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:48,074 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:50,095 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:52,119 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:54,132 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:56,148 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:11:58,158 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:00,177 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:02,209 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:04,221 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:06,228 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:08,237 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:10,258 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:12,269 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:14,282 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:16,305 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:18,308 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:20,349 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:22,359 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:24,470 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:26,482 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:28,497 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:30,550 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:32,567 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:34,598 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:36,691 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:38,710 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:40,728 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:42,739 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:44,773 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:46,784 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:48,803 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:50,829 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:52,883 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:54,937 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:56,975 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:12:58,992 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:13:01,037 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:13:03,107 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:13:05,130 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:13:07,140 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:13:09,160 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:13:11,174 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:13:13,193 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:13:15,208 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:13:17,213 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:13:19,213 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:13:21,227 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:13:23,239 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
-2026-06-25 18:13:25,250 - RTSPMonitor-Cam1 - ERROR - Erreur 401 : Identifiants RTSP refusés.
+2026-06-25 22:00:07,591 - RTSPMonitor-Cam1 - INFO - \u2705 [CAPTURE TERMINÉE] Fichier sauvegardé sous stream_Cam1.mp4.
+2026-06-25 22:00:07,591 - RTSPMonitor-Cam1 - INFO - Déclenchement de l'analyse IA sur le fichier mp4...
+2026-06-25 22:00:07,591 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-25 22:00:07,591 - AIPipeline - INFO - Extraction d'une frame nette depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream_Cam1.mp4
+2026-06-25 22:00:08,827 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-25 22:00:12,056 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-25 22:02:06,278 - RTSPMonitor-Cam1 - INFO - \U0001f4a4 [FIN DE MOUVEMENT] La caméra s'est rendormie.

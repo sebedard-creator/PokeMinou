@@ -53,6 +53,7 @@ Located in the `Android/` folder, this native Android application is built with 
 
 ### Backend Setup:
 1. Copy your RTSP stream links and configure them in the root `.env` file as `RTSP_URLS=rtsp://user:password@ip/live0,rtsp://user:password@ip/live1` (comma separated).
+   > **Note:** For multiple Eufy cameras connected to the same HomeBase, the RTSP username and password *must be identical* for all streams (only the path like `/live0` changes).
 2. Configure your `core/config.py` with your Firebase Storage bucket.
 3. Place your `serviceAccountKey.json` from Firebase in the root of the Windows folder.
 4. Run `start.bat` (or use `StartPokeMinou.vbs` to run it invisibly on Windows Startup).
