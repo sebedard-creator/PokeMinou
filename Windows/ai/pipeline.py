@@ -50,19 +50,21 @@ class AIPipeline:
             logger.info(f"Extraction d'une frame nette depuis le clip vidéo : {picture_bytes_or_path}")
             cap = cv2.VideoCapture(picture_bytes_or_path)
             if cap.isOpened():
-                valid_frames = []
-                frame_count = 0
+                all_frames = []
                 while True:
                     ret, frame = cap.read()
                     if not ret:
                         break
-                    
-                    # Ignorer les 45 premières frames (environ 3 secondes à 15 FPS) car l'image est souvent figée/grise au réveil
-                    if frame_count >= 45:
-                        valid_frames.append(frame)
-                    
-                    frame_count += 1
+                    all_frames.append(frame)
                 cap.release()
+                
+                # Ignorer les premiers 30% du clip (l'image est souvent figée/grise au réveil des caméras sur batterie)
+                # Cela remplace la vieille limite en dur de 45 frames, qui cassait si la caméra filmait à bas FPS (ex: 4 FPS = 40 frames max).
+                if all_frames:
+                    skip_count = int(len(all_frames) * 0.3)
+                    valid_frames = all_frames[skip_count:]
+                else:
+                    valid_frames = []
                 
                 if valid_frames:
                     logger.info("Analyse des frames vidéo à la recherche d'un chat...")

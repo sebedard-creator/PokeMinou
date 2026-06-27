@@ -1,10 +1,15 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # --- Chemins de Base ---
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 IMAGES_DIR = DATA_DIR / "images"
+
+# Charger le fichier .env à la racine
+env_path = BASE_DIR.parent / ".env"
+load_dotenv(dotenv_path=env_path)
 
 # Création des dossiers s'ils n'existent pas
 DATA_DIR.mkdir(parents=True, exist_ok=True)

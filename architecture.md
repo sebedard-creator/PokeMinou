@@ -91,13 +91,7 @@ Le backend est structuré en modules indépendants (Separation of Concerns). Ce 
 
 L'ordre de démarrage est primordial pour la stabilité et la prévention de l'écrasement des processus (Zombies).
 
-1. `StartPokeMinou.vbs` : Exécute le lancement sans afficher d'invite de commande noire à l'écran.
-2. `start_silent.bat` : Redirige tous les logs vers `Windows/startup.log` (mode `>>` pour conserver l'historique).
-3. `system_engine.bat` : 
-   - Injecte les variables `.env`.
-   - Lance le script de synchronisation `sync_env.py` pour configurer le pont Eufy.
-   - Ouvre le pont Node.js (`run_node.bat`) en arrière-plan.
-   - Fait une pause de 5-6 secondes pour s'assurer que le port 3000 est ouvert.
-   - Active l'environnement virtuel Python (`venv`) et lance `main.py`.
+1. `StartPokeMinou.vbs` (Optionnel) : Exécute le script `start.bat` de manière totalement invisible (sans afficher d'invite de commande noire à l'écran). Idéal pour un raccourci dans le dossier "Démarrage" de Windows.
+2. `start.bat` : Le point d'entrée universel. Active l'environnement virtuel Python (`venv`) et lance `main.py` directement. L'injection des variables d'environnement (`.env`) est gérée de manière autonome par Python.
 
 *(Note : `stop.bat` utilise WMI pour cibler spécifiquement l'exécutable Python et les arguments `main.py` afin de tuer l'application sans affecter d'autres scripts Python tournant sur le PC).*

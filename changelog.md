@@ -9,6 +9,10 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 - **Isolation des captures** : Chaque radar écrit dans son propre fichier (ex: `stream_Cam1.mp4`) pour empêcher les collisions lors de déclenchements simultanés.
 - **UI Dashboard** : L'interface Gradio affiche dorénavant l'état de connexion de chaque caméra indépendamment.
 
+### Corrigé
+- **Crash FFMPEG (ProcessLookupError) :** Ajout d'une gestion d'erreur lors de l'interruption (timeout) de `ffmpeg`, évitant un crash de l'application si le processus meurt de lui-même à la milliseconde exacte du timeout Windows.
+- **Vidéo Vide (Framerate bas) :** Remplacement de l'ignorance codée en dur (45 frames) par une coupure dynamique (les 30% premières frames). Cela empêche l'IA de déclarer la vidéo comme "vide" si la caméra bascule sur un framerate très bas (ex: 4 FPS) sur batterie.
+- **Séquence de Lancement :** Grand nettoyage des vieux scripts Batch (`system_engine.bat`, `start_silent.bat`). L'application utilise maintenant `python-dotenv` en interne et se lance proprement via un unique `start.bat`.
 ## [1.0.0-dev.4] - 2026-06-25
 ### Changé
 - **Stratégie RTSP (Bouclier Local) :** Remplacement total de l'approche Cloud API Eufy par un radar TCP local (`rtsp_monitor.py`). Plus aucun compte Eufy, Shadowban, ou Firebase Cloud Messaging n'est requis côté Eufy. Le script Python écoute directement la caméra sur le réseau local via RTSP (port 554).

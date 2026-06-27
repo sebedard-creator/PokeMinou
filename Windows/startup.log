@@ -9,27 +9,59 @@ Activation de l'environnement virtuel...
 L'interface d'administration Gradio sera disponible sur :
 http://10.0.0.30:8095
 
-2026-06-25 21:59:51,722 - Main - INFO - Démarrage du système PokeMinou Backend...
-2026-06-25 21:59:51,724 - Database - INFO - Base de données SQLite initialisée à Y:\PokeMinou\Windows\data\pokeminou.db
-2026-06-25 21:59:51,724 - AIPipeline - INFO - Initialisation du pipeline IA (YOLOv8 + ReID)...
-2026-06-25 21:59:51,769 - ReID - INFO - Chargement du modèle ResNet50 pour le ReID...
-2026-06-25 21:59:52,464 - UI - INFO - Démarrage de l'interface Gradio sur http://127.0.0.1:8095
-2026-06-25 21:59:52,650 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-initiated-analytics "HTTP/1.1 200 OK"
-2026-06-25 21:59:52,896 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
-2026-06-25 21:59:54,783 - httpx - INFO - HTTP Request: GET http://localhost:8095/gradio_api/startup-events "HTTP/1.1 200 OK"
-2026-06-25 21:59:56,887 - httpx - INFO - HTTP Request: HEAD http://localhost:8095/ "HTTP/1.1 200 OK"
-2026-06-25 21:59:56,892 - RTSPMonitor-Cam1 - INFO - Démarrage du radar local RTSP sur : 10.0.0.158:554/live1
-2026-06-25 21:59:56,892 - RTSPMonitor-Cam2 - INFO - Démarrage du radar local RTSP sur : 10.0.0.158:554/live2
-2026-06-25 21:59:56,931 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-launched-telemetry "HTTP/1.1 200 OK"
-2026-06-25 21:59:57,426 - RTSPMonitor-Cam1 - INFO - \U0001f6a8 [MOUVEMENT] Caméra réveillée ! Démarrage de la capture vidéo ffmpeg...
+2026-06-26 14:59:16,288 - Main - INFO - Démarrage du système PokeMinou Backend...
+2026-06-26 14:59:16,292 - Database - INFO - Base de données SQLite initialisée à Y:\PokeMinou\Windows\data\pokeminou.db
+2026-06-26 14:59:16,292 - AIPipeline - INFO - Initialisation du pipeline IA (YOLOv8 + ReID)...
+2026-06-26 14:59:16,397 - ReID - INFO - Chargement du modèle ResNet50 pour le ReID...
+2026-06-26 14:59:17,097 - UI - INFO - Démarrage de l'interface Gradio sur http://127.0.0.1:8095
+2026-06-26 14:59:17,266 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/agent-harnesses "HTTP/1.1 200 OK"
+2026-06-26 14:59:17,305 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-initiated-analytics "HTTP/1.1 200 OK"
+2026-06-26 14:59:17,604 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-26 14:59:19,421 - httpx - INFO - HTTP Request: GET http://localhost:8095/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-06-26 14:59:21,470 - httpx - INFO - HTTP Request: HEAD http://localhost:8095/ "HTTP/1.1 200 OK"
+2026-06-26 14:59:21,474 - RTSPMonitor-Cam1 - INFO - Démarrage du radar local RTSP sur : 10.0.0.158:554/live1
+2026-06-26 14:59:21,474 - RTSPMonitor-Cam2 - INFO - Démarrage du radar local RTSP sur : 10.0.0.158:554/live2
+2026-06-26 14:59:21,513 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-launched-telemetry "HTTP/1.1 200 OK"
 Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
   return await queue_join_helper(body, request, username)
 Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
   return await queue_join_helper(body, request, username)
-2026-06-25 22:00:07,591 - RTSPMonitor-Cam1 - INFO - \u2705 [CAPTURE TERMINÉE] Fichier sauvegardé sous stream_Cam1.mp4.
-2026-06-25 22:00:07,591 - RTSPMonitor-Cam1 - INFO - Déclenchement de l'analyse IA sur le fichier mp4...
-2026-06-25 22:00:07,591 - AIPipeline - INFO - Démarrage de la séquence IA...
-2026-06-25 22:00:07,591 - AIPipeline - INFO - Extraction d'une frame nette depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream_Cam1.mp4
-2026-06-25 22:00:08,827 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
-2026-06-25 22:00:12,056 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
-2026-06-25 22:02:06,278 - RTSPMonitor-Cam1 - INFO - \U0001f4a4 [FIN DE MOUVEMENT] La caméra s'est rendormie.
+2026-06-26 15:02:43,787 - RTSPMonitor-Cam1 - INFO - \U0001f6a8 [MOUVEMENT] Caméra réveillée ! Démarrage de la capture vidéo ffmpeg...
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-26 15:02:49,775 - RTSPMonitor-Cam1 - INFO - \u2705 [CAPTURE TERMINÉE] Fichier sauvegardé sous stream_Cam1.mp4.
+2026-06-26 15:02:49,775 - RTSPMonitor-Cam1 - INFO - Déclenchement de l'analyse IA sur le fichier mp4...
+2026-06-26 15:02:49,775 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-26 15:02:49,775 - AIPipeline - INFO - Extraction d'une frame nette depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream_Cam1.mp4
+2026-06-26 15:02:50,511 - AIPipeline - INFO - Analyse des frames vidéo à la recherche d'un chat...
+2026-06-26 15:02:52,798 - AIPipeline - INFO - Aucun chat détecté sur l'ensemble du clip. Image ignorée.
+2026-06-26 15:02:52,998 - RTSPMonitor-Cam1 - INFO - \U0001f4a4 [FIN DE MOUVEMENT] La caméra s'est rendormie.
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+2026-06-26 15:28:49,107 - RTSPMonitor-Cam1 - INFO - \U0001f6a8 [MOUVEMENT] Caméra réveillée ! Démarrage de la capture vidéo ffmpeg...
+2026-06-26 15:28:55,476 - RTSPMonitor-Cam1 - INFO - \u2705 [CAPTURE TERMINÉE] Fichier sauvegardé sous stream_Cam1.mp4.
+2026-06-26 15:28:55,477 - RTSPMonitor-Cam1 - INFO - Déclenchement de l'analyse IA sur le fichier mp4...
+2026-06-26 15:28:55,477 - AIPipeline - INFO - Démarrage de la séquence IA...
+2026-06-26 15:28:55,477 - AIPipeline - INFO - Extraction d'une frame nette depuis le clip vidéo : Y:\PokeMinou\Windows\data\stream_Cam1.mp4
+2026-06-26 15:28:55,720 - AIPipeline - ERROR - Le clip vidéo est vide ou illisible.
+2026-06-26 15:28:58,947 - RTSPMonitor-Cam1 - INFO - \U0001f4a4 [FIN DE MOUVEMENT] La caméra s'est rendormie.
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)
+Y:\PokeMinou\Windows\venv\Lib\site-packages\gradio\routes.py:1379: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+  return await queue_join_helper(body, request, username)

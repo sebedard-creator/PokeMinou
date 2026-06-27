@@ -117,7 +117,10 @@ class RTSPMonitor:
             await asyncio.wait_for(process.wait(), timeout=15.0)
             self.logger.info(f"✅ [CAPTURE TERMINÉE] Fichier sauvegardé sous stream_Cam{self.camera_id}.mp4.")
         except asyncio.TimeoutError:
-            process.kill()
+            try:
+                process.kill()
+            except ProcessLookupError:
+                pass # Le processus est déjà terminé
             self.logger.warning("Ffmpeg a été interrompu après le délai maximum.")
             
         # Déclenchement de l'IA
