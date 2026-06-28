@@ -89,7 +89,10 @@ class RTSPMonitor:
             if is_awake and not self.is_motion_active:
                 self.is_motion_active = True
                 self.logger.info("🚨 [MOUVEMENT] Caméra réveillée ! Démarrage de la capture vidéo ffmpeg...")
-                await self._record_stream()
+                try:
+                    await self._record_stream()
+                except Exception as e:
+                    self.logger.error(f"Erreur inattendue lors de l'exécution de la capture : {e}")
             elif not is_awake and self.is_motion_active:
                 self.is_motion_active = False
                 self.logger.info("💤 [FIN DE MOUVEMENT] La caméra s'est rendormie.")
@@ -98,36 +101,94 @@ class RTSPMonitor:
             await asyncio.sleep(self.ping_interval)
 
     async def _record_stream(self):
-        """Lance ffmpeg pour capturer le flux RTSP dans un .mp4."""
+        """Lance ffmpeg pour capturer le flux RTSP dans un .mp4 avec logique de réessai."""
         output_file = str(IMAGES_DIR.parent / f"stream_Cam{self.camera_id}.mp4")
+        log_file_path = str(IMAGES_DIR.parent / f"ffmpeg_Cam{self.camera_id}.log")
         
-        # Commande ffmpeg (capture brute sans ré-encodage, limité à 10 secondes pour garantir un clip rapide)
-        process = await asyncio.create_subprocess_exec(
-            'ffmpeg', '-y', 
-            '-i', self.rtsp_url, 
-            '-c', 'copy', 
-            '-t', '10',  # Force l'arrêt après 10 secondes pour analyser rapidement
-            output_file,
-            stdout=asyncio.subprocess.DEVNULL,
-            stderr=asyncio.subprocess.DEVNULL
-        )
+        max_attempts = 2
+        success = False
         
-        # On attend la fin de ffmpeg (timeout de sécurité de 15s)
-        try:
-            await asyncio.wait_for(process.wait(), timeout=15.0)
-            self.logger.info(f"✅ [CAPTURE TERMINÉE] Fichier sauvegardé sous stream_Cam{self.camera_id}.mp4.")
-        except asyncio.TimeoutError:
-            try:
-                process.kill()
-            except ProcessLookupError:
-                pass # Le processus est déjà terminé
-            self.logger.warning("Ffmpeg a été interrompu après le délai maximum.")
+        for attempt in range(1, max_attempts + 1):
+            if attempt > 1:
+                self.logger.info(f"🔄 Nouvelle tentative de capture dans 1 seconde... (Tentative {attempt}/{max_attempts})")
+                await asyncio.sleep(1.0)
             
+            # Ouvrir le fichier de log ffmpeg en mode écriture (écrase le log précédent)
+            try:
+                log_file = open(log_file_path, "w", encoding="utf-8")
+            except Exception as e:
+                # Si erreur d'ouverture du log, on utilise DEVNULL pour ne pas bloquer
+                self.logger.warning(f"Impossible d'ouvrir le fichier de log ffmpeg : {e}")
+                log_file = asyncio.subprocess.DEVNULL
+                
+            self.logger.info("Démarrage de la capture vidéo ffmpeg...")
+            
+            # Commande ffmpeg robuste :
+            # -rtsp_transport tcp : Force le protocole TCP
+            # -timeout 5000000 : Timeout de 5s au niveau socket
+            # -movflags frag_keyframe+empty_moov+default_base_moof : MP4 fragmenté (résistant aux crashs)
+            process = await asyncio.create_subprocess_exec(
+                'ffmpeg', '-y', 
+                '-rtsp_transport', 'tcp',
+                '-timeout', '5000000',
+                '-i', self.rtsp_url, 
+                '-c', 'copy', 
+                '-t', '10', 
+                '-movflags', 'frag_keyframe+empty_moov+default_base_moof',
+                output_file,
+                stdin=asyncio.subprocess.PIPE,
+                stdout=asyncio.subprocess.DEVNULL,
+                stderr=log_file
+            )
+            
+            # Si on a ouvert un fichier log, on le ferme côté Python (le processus enfant en garde une copie pour écrire)
+            if log_file != asyncio.subprocess.DEVNULL:
+                log_file.close()
+                
+            try:
+                # On attend la fin de ffmpeg (timeout de sécurité de 15s)
+                await asyncio.wait_for(process.wait(), timeout=15.0)
+                
+                # Vérifier si le fichier existe et n'est pas vide
+                if os.path.exists(output_file) and os.path.getsize(output_file) > 5000:
+                    success = True
+                    self.logger.info(f"✅ [CAPTURE TERMINÉE] Fichier sauvegardé sous stream_Cam{self.camera_id}.mp4.")
+                else:
+                    self.logger.warning(f"Fichier de capture invalide ou trop petit ({os.path.getsize(output_file) if os.path.exists(output_file) else 0} octets).")
+            except asyncio.TimeoutError:
+                self.logger.warning("Ffmpeg a dépassé le délai maximum de 15s. Tentative d'arrêt propre...")
+                if process.stdin:
+                    try:
+                        process.stdin.write(b'q\n')
+                        await process.stdin.drain()
+                        # Attendre 2.0s que ffmpeg s'arrête proprement
+                        await asyncio.wait_for(process.wait(), timeout=2.0)
+                        if os.path.exists(output_file) and os.path.getsize(output_file) > 5000:
+                            success = True
+                            self.logger.info("Ffmpeg arrêté proprement. Vidéo exploitable récupérée.")
+                    except Exception as exc:
+                        self.logger.warning(f"Échec de l'arrêt propre, forçage de l'extinction : {exc}")
+                        try:
+                            process.kill()
+                        except ProcessLookupError:
+                            pass
+            except Exception as e:
+                self.logger.error(f"Erreur durant l'exécution de ffmpeg : {e}")
+                try:
+                    process.kill()
+                except ProcessLookupError:
+                    pass
+            
+            if success:
+                break
+                
         # Déclenchement de l'IA
-        if self.image_callback:
-            self.logger.info("Déclenchement de l'analyse IA sur le fichier mp4...")
-            # On lance la tâche en arrière-plan pour ne pas bloquer le radar
-            asyncio.create_task(self.image_callback(output_file))
+        if success:
+            if self.image_callback:
+                self.logger.info("Déclenchement de l'analyse IA sur le fichier mp4...")
+                asyncio.create_task(self.image_callback(output_file))
+        else:
+            self.logger.error("Impossible de récupérer un flux vidéo valide après toutes les tentatives de réessai.")
 
     def stop(self):
         self.is_running = False

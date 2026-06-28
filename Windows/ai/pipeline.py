@@ -100,6 +100,19 @@ class AIPipeline:
                     return
             else:
                 logger.error("Impossible d'ouvrir le fichier vidéo .mp4.")
+                try:
+                    import re
+                    match = re.search(r"stream_Cam(\d+)\.mp4", picture_bytes_or_path)
+                    if match:
+                        cam_id = match.group(1)
+                        log_path = picture_bytes_or_path.replace(f"stream_Cam{cam_id}.mp4", f"ffmpeg_Cam{cam_id}.log")
+                        if os.path.exists(log_path):
+                            with open(log_path, "r", encoding="utf-8") as f:
+                                log_lines = f.readlines()
+                            last_lines = "".join(log_lines[-5:])
+                            logger.error(f"Détails de l'erreur ffmpeg pour diagnostic (Cam{cam_id}) :\n{last_lines}")
+                except Exception as e:
+                    logger.error(f"Impossible de lire le log ffmpeg pour diagnostic : {e}")
                 return
         else:
             # Traitement d'une image classique (test manuel)
